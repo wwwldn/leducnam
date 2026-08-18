@@ -15,6 +15,23 @@ Mở `index.html` bằng trình duyệt là chạy.
 8. Kỹ năng — 4 nhóm
 9. Liên hệ
 
+## Repo tự chứa
+
+Không phụ thuộc gì bên ngoài lúc chạy — không CDN, không Google Fonts. Clone về
+là mở được ngay, kể cả offline. Mọi file gốc để dựng lại tài nguyên đều nằm
+trong repo:
+
+| Script | Sinh ra | Nguồn |
+|---|---|---|
+| `tools/prepare_logos.py` | `assets/img/logos/*.png` | `tools/logo-src/` |
+| `tools/make_og.py` | `assets/img/og-cover.jpg` | `assets/img/portrait.jpg` |
+| `tools/fetch_fonts.py` | `assets/fonts/` + `assets/css/fonts.css` | Google Fonts (chỉ khi chạy script) |
+| `tools/bump_version.py` | đổi `?v=` trong `index.html` | — |
+
+Font Be Vietnam Pro được tự host (166 KB, hai bộ ký tự vietnamese + latin,
+giấy phép SIL OFL). Chữ Hán ở bản tiếng Trung dùng font hệ thống nên không phải
+tải thêm megabyte nào.
+
 ## Logo thương hiệu
 
 Dải logo dưới hero tự nhận file — **không cần sửa code**. Chỉ cần thả file vào:
@@ -60,7 +77,7 @@ kích thước loạn. Có script đưa hết về một chuẩn:
 python tools/prepare_logos.py
 ```
 
-Script đọc thư mục nguồn khai báo trong `SRC_DIR`, gỡ nền trắng bằng flood fill
+Script đọc file gốc trong `tools/logo-src/`, gỡ nền trắng bằng flood fill
 từ 4 góc (giữ nguyên mảng âm bên trong logo), bo góc cho badge nền màu, cắt sát
 nội dung rồi xuất PNG cao 120px vào `assets/img/logos/`. Thêm logo mới thì thêm
 một dòng vào `LOGOS` trong script.

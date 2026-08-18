@@ -6,9 +6,13 @@ cái là badge nền màu, cái dính thêm chữ thừa, kích thước thì lo
 đưa hết về một chuẩn: cao 120px, nền trong suốt nếu gỡ được, viền bo nếu là
 badge, và cắt sát nội dung.
 
-    python tools/prepare_logos.py
+    python tools/prepare_logos.py                 # đọc tools/logo-src/
+    python tools/prepare_logos.py D:/anh-logo     # hoặc chỉ định thư mục khác
 
-Muốn thêm logo mới: thêm một dòng vào LOGOS rồi chạy lại.
+File gốc nằm sẵn trong tools/logo-src/ nên repo tự chứa, clone sang máy khác
+chạy lại được ngay.
+
+Muốn thêm logo mới: bỏ file vào tools/logo-src/ rồi thêm một dòng vào LOGOS.
 """
 import io
 import os
@@ -18,20 +22,18 @@ from PIL import Image, ImageDraw
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEST = os.path.join(ROOT, 'assets', 'img', 'logos')
-SRC_DIR = r'C:/Users/greev/Downloads/logo'
+SRC_DIR = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'tools', 'logo-src')
 
 # slug -> (file nguồn, gỡ nền?, là badge nền màu?, cắt trước theo tỉ lệ (l,t,r,b), ngưỡng gỡ nền)
 # Ngưỡng cao hơn cho ảnh JPEG: nén JPEG để lại quầng sáng quanh nét, ngưỡng thấp
 # sẽ chừa lại viền trắng lởm chởm.
 LOGOS = {
-    'gree':        ('images.png', True, False, None, 26),
-    'samsung':     ('360_197_1.avif', True, False, None, 26),
-    'tpbank':      ('3277505605104805445339628395349686489874147n-167715087765358226074.webp',
-                    False, True, None, 0),
-    'newlifepack': ('514315871_1187796163364778_8433207760662946134_n.jpg',
-                    False, True, (0.0, 0.0, 1.0, 0.74), 0),   # bỏ dòng "XÃ CỦ CHI TP.HCM"
-    'hoasen':      ('logo-hsg.png', False, True, None, 0),
-    'kyanon':      ('kyanon_logo.jpg', True, False, None, 62),   # JPEG, cần ngưỡng cao
+    'gree':        ('gree.png', True, False, None, 26),
+    'samsung':     ('samsung.avif', True, False, None, 26),
+    'tpbank':      ('tpbank.webp', False, True, None, 0),
+    'newlifepack': ('newlifepack.jpg', False, True, (0.0, 0.0, 1.0, 0.74), 0),  # bỏ dòng "XÃ CỦ CHI TP.HCM"
+    'hoasen':      ('hoasen.png', False, True, None, 0),
+    'kyanon':      ('kyanon.jpg', True, False, None, 62),   # JPEG, nén để lại quầng nên cần ngưỡng cao
 }
 
 TARGET_H = 120          # cao chuẩn, đủ nét cho màn Retina ở ~30–40px
@@ -93,8 +95,6 @@ def main():
 
     for slug, (fname, strip_bg, badge, crop, tol) in LOGOS.items():
         path = os.path.join(SRC_DIR, fname)
-        if not os.path.exists(path):
-            path = os.path.join(os.path.dirname(SRC_DIR), fname)   # thu thu muc cha
         if not os.path.exists(path):
             print('  bo qua %-12s (khong co file)' % slug)
             continue

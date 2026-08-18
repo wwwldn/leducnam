@@ -3,7 +3,7 @@
 import os
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
-BASE = r"d:/NAMLE/GIT/source/leducnam.com"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 W, H = 1200, 630
 NAVY = (11, 27, 51)
 NAVY_D = (7, 19, 42)
