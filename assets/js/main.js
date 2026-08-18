@@ -280,7 +280,7 @@
   /* ---------- 7b. Logo thương hiệu ---------- */
   /* Thả file assets/img/logos/<slug>.svg (hoặc .png/.webp) là logo tự thay chữ.
      slug lấy từ data-logo trên mỗi <li>. */
-  Array.prototype.forEach.call(document.querySelectorAll('.brands__list [data-logo]'), function (li) {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-logo]'), function (li) {
     var base = 'assets/img/logos/' + li.getAttribute('data-logo') + '.';
     var exts = ['svg', 'png', 'webp'];   // ưu tiên svg, không có thì thử png
     var i = 0, src = '';
@@ -297,11 +297,13 @@
         ? probe.naturalWidth / probe.naturalHeight : 3;
       // giới hạn để logo quá dài hoặc quá vuông không phá nhịp hàng
       ratio = Math.max(1, Math.min(ratio, 5));
+      // chiều cao do CSS quy định theo từng vị trí (dải thương hiệu / thẻ dự án)
+      var hpx = parseFloat(window.getComputedStyle(box).height) || 30;
       // URL phải tuyệt đối: đường dẫn tương đối trong custom property được
       // phân giải theo vị trí file CSS, không phải file HTML.
       var abs = (typeof URL === 'function') ? new URL(src, document.baseURI).href : src;
       box.style.setProperty('--logo', 'url("' + abs + '")');
-      box.style.width = Math.round(30 * ratio) + 'px';
+      box.style.width = Math.round(hpx * ratio) + 'px';
       li.classList.add('has-logo');
     };
 

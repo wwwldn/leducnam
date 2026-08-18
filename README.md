@@ -36,8 +36,12 @@ Logo được tô **một màu** bằng CSS mask nên file gốc màu gì cũng 
 nền trong suốt vẫn dùng tốt**. Chiều cao cố định 30px, chiều rộng tự tính theo
 tỉ lệ ảnh.
 
-Muốn thêm thương hiệu: thêm một `<li data-logo="slug">` trong mục `.brands__list`
-của `index.html`, đặt file tên `slug.svg`.
+Cùng bộ file đó dùng cho **cả hai chỗ**: dải thương hiệu (cao 30px) và dòng
+tên công ty trên từng thẻ dự án (cao 18px). Thêm file một lần là hiện ở cả hai.
+
+Muốn thêm thương hiệu: thêm `data-logo="slug"` vào phần tử tương ứng trong
+`index.html` (kèm `<span class="blogo">` và `<span class="bword">`), đặt file
+tên `slug.svg`.
 
 ## Đa ngôn ngữ
 
