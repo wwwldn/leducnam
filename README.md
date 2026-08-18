@@ -15,9 +15,48 @@ Mở `index.html` bằng trình duyệt là chạy.
 8. Kỹ năng — 4 nhóm
 9. Liên hệ
 
+## Đo lường
+
+Mở [assets/js/analytics.js](assets/js/analytics.js), điền ID vào `CONFIG` đầu file.
+**Để trống thì không tải gì, không phát sinh request nào** — trang vẫn sạch.
+
+```js
+cloudflareToken: '',   // Cloudflare → Web Analytics → Add a site
+clarityId:       '',   // Microsoft Clarity → New project → Project ID
+```
+
+Hai công cụ trả lời hai loại câu hỏi khác nhau:
+
+| | Cloudflare | Clarity |
+|---|---|---|
+| Lượt xem, nguồn vào, quốc gia | ✅ | ✅ |
+| Thời gian dừng | ❌ | ✅ |
+| Heatmap cuộn / click | ❌ | ✅ |
+| Xem lại phiên truy cập | ❌ | ✅ |
+| Cookie → cần banner | Không | **Có** |
+| Nặng | ~1 KB | ~40 KB |
+
+Cloudflare cố tình tối giản và **không có API sự kiện tuỳ biến**, nên các sự
+kiện dưới đây chỉ chạy khi bật Clarity:
+
+| Sự kiện | Trả lời câu hỏi |
+|---|---|
+| `lien-he-zalo` · `-dien-thoai` · `-email` · `-github` | Kênh nào thực sự được bấm |
+| `doi-ngon-ngu-en` · `-zh` · `-vi` | Bản dịch có ai dùng không |
+| `cuon-25` → `cuon-100` | Người xem đọc tới đâu rồi bỏ |
+| `muc-xem-lau-nhat` | Dừng lâu nhất ở mục nào |
+| `thoi-gian-o-lai-giay` | Ở lại bao lâu |
+
+Đổi sang Umami / Plausible / GA4 sau này chỉ phải sửa hàm `track()` — một chỗ duy nhất.
+
+> ⚠️ Bật Clarity thì nên thêm một dòng ở footer nói rõ trang có dùng công cụ
+> phân tích. Clarity đặt cookie và ghi lại thao tác chuột/cuộn (mặc định che
+> nội dung chữ). Nghị định 13/2023 về bảo vệ dữ liệu cá nhân.
+
 ## Repo tự chứa
 
-Không phụ thuộc gì bên ngoài lúc chạy — không CDN, không Google Fonts. Clone về
+Không phụ thuộc gì bên ngoài lúc chạy — không CDN, không Google Fonts
+(trừ khi bạn tự bật đo lường). Clone về
 là mở được ngay, kể cả offline. Mọi file gốc để dựng lại tài nguyên đều nằm
 trong repo:
 
