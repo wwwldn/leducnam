@@ -19,6 +19,10 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="canonical" href="https://leducnam.com/">
+<link rel="alternate" hreflang="vi" href="https://leducnam.com/">
+<link rel="alternate" hreflang="en" href="https://leducnam.com/?lang=en">
+<link rel="alternate" hreflang="zh" href="https://leducnam.com/?lang=zh">
+<link rel="alternate" hreflang="x-default" href="https://leducnam.com/">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,28 +57,42 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main">Bỏ qua đến nội dung chính</a>
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Bỏ qua đến nội dung chính</a>
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <!-- ================= HEADER ================= -->
 <header class="site-header" id="siteHeader">
   <div class="wrap header__inner">
-    <a class="brand" href="#top" aria-label="Về đầu trang">
+    <a class="brand" href="#top" aria-label="Về đầu trang" data-i18n-aria-label="a11y.top">
       <span class="brand__mark">LN</span>
       <span class="brand__text">Lê Đức Nam</span>
     </a>
 
-    <nav class="nav" id="nav" aria-label="Điều hướng chính">
-      <a href="#about">Về tôi</a>
-      <a href="#ai">AI trong vận hành</a>
-      <a href="#projects">Dự án</a>
-      <a href="#experience">Kinh nghiệm</a>
-      <a href="#skills">Kỹ năng</a>
-      <a class="nav__cta" href="#contact">Liên hệ</a>
+    <nav class="nav" id="nav" aria-label="Điều hướng chính" data-i18n-aria-label="a11y.nav">
+      <a href="#about" data-i18n="nav.about">Về tôi</a>
+      <a href="#ai" data-i18n="nav.ai">AI trong vận hành</a>
+      <a href="#projects" data-i18n="nav.projects">Dự án</a>
+      <a href="#experience" data-i18n="nav.experience">Kinh nghiệm</a>
+      <a href="#skills" data-i18n="nav.skills">Kỹ năng</a>
+      <a class="nav__cta" href="#contact" data-i18n="nav.contact">Liên hệ</a>
     </nav>
 
     <div class="header__tools">
-      <button class="icon-btn" id="themeToggle" type="button" aria-label="Đổi giao diện sáng/tối">
+      <div class="lang" id="lang">
+        <button class="lang__btn" id="langBtn" type="button" aria-haspopup="listbox" aria-expanded="false"
+                aria-label="Chọn ngôn ngữ" data-i18n-aria-label="a11y.lang">
+          <span class="flag" id="langFlag" aria-hidden="true"></span>
+          <span class="lang__code" id="langCode">VI</span>
+          <svg class="lang__caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <ul class="lang__menu" id="langMenu" role="listbox" aria-label="Ngôn ngữ" data-i18n-aria-label="a11y.langList">
+          <li><button type="button" role="option" data-lang="vi"><span class="flag flag--vi" aria-hidden="true"></span>Tiếng Việt</button></li>
+          <li><button type="button" role="option" data-lang="en"><span class="flag flag--en" aria-hidden="true"></span>English</button></li>
+          <li><button type="button" role="option" data-lang="zh"><span class="flag flag--zh" aria-hidden="true"></span>中文</button></li>
+        </ul>
+      </div>
+
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Đổi giao diện sáng/tối" data-i18n-aria-label="a11y.theme">
         <svg class="ico-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/></svg>
         <svg class="ico-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
       </button>
@@ -94,45 +112,45 @@
 
   <div class="wrap hero__inner">
     <div class="hero__copy reveal">
-      <p class="eyebrow"><span class="dot"></span> IT Manager · Lead System Architect</p>
+      <p class="eyebrow"><span class="dot"></span> <span data-i18n="hero.eyebrow">IT Manager · Lead System Architect</span></p>
 
       <h1 class="hero__name">Lê Đức Nam</h1>
 
-      <p class="hero__role">
+      <p class="hero__role" data-i18n-html="hero.role">
         Kiến trúc hệ thống &amp; quản lý vận hành CNTT —
         <span class="hl">AI đồng hành</span> trong từng quy trình.
       </p>
 
-      <p class="hero__sub">
+      <p class="hero__sub" data-i18n="hero.sub">
         14+ năm xây dựng hạ tầng CNTT từ con số 0, triển khai ERP và ứng dụng
         AI/Automation cho doanh nghiệp sản xuất, bán lẻ và xây dựng.
       </p>
 
       <div class="hero__cta">
         <a class="btn btn--primary" href="#contact">
-          Liên hệ
+          <span data-i18n="hero.cta1">Liên hệ</span>
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="btn btn--ghost" href="#projects">Xem dự án</a>
+        <a class="btn btn--ghost" href="#projects" data-i18n="hero.cta2">Xem dự án</a>
       </div>
 
       <ul class="hero__stats">
-        <li><strong data-count="14" data-suffix="+">14+</strong><span>năm kinh nghiệm CNTT doanh nghiệp</span></li>
-        <li><strong data-count="200" data-suffix="K">200K</strong><span>người dùng trên nền tảng tự phát triển</span></li>
-        <li><strong data-count="500" data-suffix="+">500+</strong><span>chi nhánh vận hành trên hệ thống ERP</span></li>
+        <li><strong data-count="14" data-suffix="+">14+</strong><span data-i18n="hero.stat1">năm kinh nghiệm CNTT doanh nghiệp</span></li>
+        <li><strong data-count="200" data-suffix="K">200K</strong><span data-i18n="hero.stat2">người dùng trên nền tảng tự phát triển</span></li>
+        <li><strong data-count="500" data-suffix="+">500+</strong><span data-i18n="hero.stat3">chi nhánh vận hành trên hệ thống ERP</span></li>
       </ul>
     </div>
 
     <div class="hero__media reveal" data-delay="1">
       <figure class="portrait" id="portrait">
-        <img src="assets/img/portrait.jpg" alt="Ảnh chân dung Lê Đức Nam" width="520" height="640" id="portraitImg">
+        <img src="assets/img/portrait.jpg" alt="Ảnh chân dung Lê Đức Nam" data-i18n-alt="hero.portraitAlt" width="520" height="640" id="portraitImg">
         <div class="portrait__placeholder">
           <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM4 21a8 8 0 0 1 16 0"/></svg>
-          <p>Đặt ảnh chân dung tại<br><code>assets/img/portrait.jpg</code></p>
+          <p data-i18n-html="hero.portraitPh">Đặt ảnh chân dung tại<br><code>assets/img/portrait.jpg</code></p>
         </div>
         <figcaption class="portrait__badge">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M3 12h18M6.3 6.3l11.4 11.4M17.7 6.3 6.3 17.7"/></svg>
-          AI-assisted operations
+          <span data-i18n="hero.badge">AI-assisted operations</span>
         </figcaption>
       </figure>
     </div>
@@ -140,11 +158,11 @@
 </section>
 
 <!-- ================= THƯƠNG HIỆU ================= -->
-<section class="brands" aria-label="Thương hiệu đã làm việc cùng">
+<section class="brands" aria-label="Thương hiệu đã làm việc cùng" data-i18n-aria-label="brands.aria">
   <div class="wrap">
-    <p class="brands__label reveal">Đã xây dựng &amp; vận hành hệ thống cho</p>
+    <p class="brands__label reveal" data-i18n="brands.label">Đã xây dựng &amp; vận hành hệ thống cho</p>
     <ul class="brands__list reveal" data-delay="1">
-      <li><span>GREE</span><em>Việt Nam</em></li>
+      <li><span>GREE</span><em data-i18n="brands.vn">Việt Nam</em></li>
       <li><span>HOA SEN</span><em>Group</em></li>
       <li><span>SAMSUNG</span><em>Vietnam</em></li>
       <li><span>TPBank</span><em>eForm</em></li>
@@ -173,20 +191,20 @@
     </div>
 
     <div class="about__copy reveal" data-delay="1">
-      <p class="kicker">Về tôi</p>
-      <h2>Hệ thống chạy đúng là nền móng.<br>AI là đòn bẩy.</h2>
-      <p class="lead">
+      <p class="kicker" data-i18n="about.kicker">Về tôi</p>
+      <h2 data-i18n-html="about.h2">Hệ thống chạy đúng là nền móng.<br>AI là đòn bẩy.</h2>
+      <p class="lead" data-i18n-html="about.lead">
         Tôi làm CNTT cho những doanh nghiệp <strong>không phải công ty công nghệ</strong> —
         nơi hệ thống thường rời rạc và quy trình còn thủ công. Việc của tôi là dựng nền móng
         hạ tầng, chuẩn hoá dữ liệu giữa các nền tảng, rồi đưa AI/Automation vào để bộ máy
         <strong>chạy thông minh hơn, nhẹ tải hơn</strong>.
       </p>
       <ul class="about__facts">
-        <li><span>Vai trò</span>IT Manager · Lead System Architect — hạ tầng, vận hành, điều phối dự án</li>
-        <li><span>Lĩnh vực</span>Sản xuất, bán lẻ, xây dựng, tài chính</li>
-        <li><span>Trọng tâm</span>Triển khai ERP · Quản trị SQL Server · AI &amp; Automation</li>
-        <li><span>Cách tiếp cận</span>Cầu nối giữa giải pháp kỹ thuật và nhu cầu kinh doanh</li>
-        <li><span>Ngoại ngữ</span>Tiếng Anh · Tiếng Trung</li>
+        <li><span data-i18n="about.f1k">Vai trò</span><span data-i18n="about.f1v">IT Manager · Lead System Architect — hạ tầng, vận hành, điều phối dự án</span></li>
+        <li><span data-i18n="about.f2k">Lĩnh vực</span><span data-i18n="about.f2v">Sản xuất, bán lẻ, xây dựng, tài chính</span></li>
+        <li><span data-i18n="about.f3k">Trọng tâm</span><span data-i18n="about.f3v">Triển khai ERP · Quản trị SQL Server · AI &amp; Automation</span></li>
+        <li><span data-i18n="about.f4k">Cách tiếp cận</span><span data-i18n="about.f4v">Cầu nối giữa giải pháp kỹ thuật và nhu cầu kinh doanh</span></li>
+        <li><span data-i18n="about.f5k">Ngoại ngữ</span><span data-i18n="about.f5v">Tiếng Anh · Tiếng Trung</span></li>
       </ul>
     </div>
   </div>
@@ -196,8 +214,8 @@
 <section class="section section--alt" id="process">
   <div class="wrap">
     <header class="section__head reveal">
-      <p class="kicker">Cách tôi làm việc</p>
-      <h2>Ba bước, lặp lại liên tục</h2>
+      <p class="kicker" data-i18n="proc.kicker">Cách tôi làm việc</p>
+      <h2 data-i18n="proc.h2">Ba bước, lặp lại liên tục</h2>
     </header>
 
     <ol class="steps">
@@ -206,8 +224,8 @@
         <span class="step__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.6 4.6"/></svg>
         </span>
-        <h3>Tìm hiểu</h3>
-        <p>Cập nhật công nghệ, đánh giá nhu cầu thực tế.</p>
+        <h3 data-i18n="proc.s1t">Tìm hiểu</h3>
+        <p data-i18n="proc.s1d">Cập nhật công nghệ, đánh giá nhu cầu thực tế.</p>
       </li>
 
       <li class="step reveal" data-delay="1">
@@ -215,8 +233,8 @@
         <span class="step__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17"/><rect x="5" y="11" width="3.6" height="7" rx="1"/><rect x="10.2" y="6" width="3.6" height="12" rx="1"/><rect x="15.4" y="8.6" width="3.6" height="9.4" rx="1"/></svg>
         </span>
-        <h3>Nghiên cứu</h3>
-        <p>Thử nghiệm, so sánh giải pháp, chọn hướng tối ưu.</p>
+        <h3 data-i18n="proc.s2t">Nghiên cứu</h3>
+        <p data-i18n="proc.s2d">Thử nghiệm, so sánh giải pháp, chọn hướng tối ưu.</p>
       </li>
 
       <li class="step reveal" data-delay="2">
@@ -224,8 +242,8 @@
         <span class="step__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.6v3M12 18.4v3M2.6 12h3M18.4 12h3M5.4 5.4l2.1 2.1M16.5 16.5l2.1 2.1M18.6 5.4l-2.1 2.1M7.5 16.5l-2.1 2.1"/></svg>
         </span>
-        <h3>Ứng dụng</h3>
-        <p>Triển khai, đo lường, cải tiến liên tục.</p>
+        <h3 data-i18n="proc.s3t">Ứng dụng</h3>
+        <p data-i18n="proc.s3d">Triển khai, đo lường, cải tiến liên tục.</p>
       </li>
     </ol>
   </div>
@@ -238,9 +256,9 @@
 
   <div class="wrap">
     <header class="section__head section__head--center reveal">
-      <p class="kicker kicker--on-dark">Điểm khác biệt</p>
-      <h2>AI trong vận hành</h2>
-      <p class="ai__statement">
+      <p class="kicker kicker--on-dark" data-i18n="ai.kicker">Điểm khác biệt</p>
+      <h2 data-i18n="ai.h2">AI trong vận hành</h2>
+      <p class="ai__statement" data-i18n-html="ai.statement">
         AI không thay thế con người — <span class="hl">AI đồng hành</span>, xử lý phần lặp lại
         để con người tập trung việc quan trọng hơn.
       </p>
@@ -250,7 +268,7 @@
 
       <!-- Bản ngang (desktop / tablet) -->
       <svg class="flow__svg flow__svg--h" viewBox="0 0 900 230" role="img"
-           aria-label="Sơ đồ luồng: Khách hàng đến AI sàng lọc đến Con người">
+           aria-label="Sơ đồ luồng: Khách hàng đến AI sàng lọc đến Con người" data-i18n-aria-label="flow.aria">
         <defs>
           <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
             <path d="M0 0 L10 5 L0 10 z" fill="#4E8CFF"/>
@@ -263,8 +281,8 @@
             <circle cx="10" cy="8" r="6"/>
             <path d="M0 24a10 10 0 0 1 20 0"/>
           </g>
-          <text class="flabel" x="130" y="124">Khách hàng</text>
-          <text class="fmeta"  x="130" y="150">Tin nhắn · Yêu cầu</text>
+          <text class="flabel" data-i18n="flow.n1" x="130" y="124">Khách hàng</text>
+          <text class="fmeta" data-i18n="flow.n1m"  x="130" y="150">Tin nhắn · Yêu cầu</text>
         </g>
 
         <g class="fnode fnode--ai" data-n="2">
@@ -273,9 +291,9 @@
             <path d="M10 0v28M0 14h20M3 7l14 14M17 7 3 21"/>
             <circle cx="10" cy="14" r="4.2" class="filled"/>
           </g>
-          <text class="flabel" x="450" y="112">AI sàng lọc</text>
-          <text class="fmeta"  x="450" y="141">Phân loại · Tự trả lời</text>
-          <text class="fmeta"  x="450" y="164">Chuyển tiếp khi cần</text>
+          <text class="flabel" data-i18n="flow.n2" x="450" y="112">AI sàng lọc</text>
+          <text class="fmeta" data-i18n="flow.n2a"  x="450" y="141">Phân loại · Tự trả lời</text>
+          <text class="fmeta" data-i18n="flow.n2b"  x="450" y="164">Chuyển tiếp khi cần</text>
         </g>
 
         <g class="fnode" data-n="3">
@@ -284,8 +302,8 @@
             <circle cx="10" cy="8" r="6"/>
             <path d="M0 24a10 10 0 0 1 20 0"/>
           </g>
-          <text class="flabel" x="770" y="124">Con người</text>
-          <text class="fmeta"  x="770" y="150">Việc cần phán đoán</text>
+          <text class="flabel" data-i18n="flow.n3" x="770" y="124">Con người</text>
+          <text class="fmeta" data-i18n="flow.n3m"  x="770" y="150">Việc cần phán đoán</text>
         </g>
 
         <path class="farrow" d="M244 115 H334" marker-end="url(#arw)"/>
@@ -294,7 +312,7 @@
 
       <!-- Bản dọc (mobile) -->
       <svg class="flow__svg flow__svg--v" viewBox="0 0 340 588" role="img"
-           aria-label="Sơ đồ luồng: Khách hàng đến AI sàng lọc đến Con người">
+           aria-label="Sơ đồ luồng: Khách hàng đến AI sàng lọc đến Con người" data-i18n-aria-label="flow.aria">
         <defs>
           <marker id="arwv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M0 0 L10 5 L0 10 z" fill="#4E8CFF"/>
@@ -307,8 +325,8 @@
             <circle cx="10" cy="8" r="6"/>
             <path d="M0 24a10 10 0 0 1 20 0"/>
           </g>
-          <text class="flabel" x="170" y="94">Khách hàng</text>
-          <text class="fmeta"  x="170" y="126">Tin nhắn · Yêu cầu</text>
+          <text class="flabel" data-i18n="flow.n1" x="170" y="94">Khách hàng</text>
+          <text class="fmeta" data-i18n="flow.n1m"  x="170" y="126">Tin nhắn · Yêu cầu</text>
         </g>
 
         <path class="farrow" d="M170 158 V 196" marker-end="url(#arwv)"/>
@@ -319,9 +337,9 @@
             <path d="M10 0v28M0 14h20M3 7l14 14M17 7 3 21"/>
             <circle cx="10" cy="14" r="4.2" class="filled"/>
           </g>
-          <text class="flabel" x="170" y="294">AI sàng lọc</text>
-          <text class="fmeta"  x="170" y="326">Phân loại · Tự trả lời</text>
-          <text class="fmeta"  x="170" y="354">Chuyển tiếp khi cần</text>
+          <text class="flabel" data-i18n="flow.n2" x="170" y="294">AI sàng lọc</text>
+          <text class="fmeta" data-i18n="flow.n2a"  x="170" y="326">Phân loại · Tự trả lời</text>
+          <text class="fmeta" data-i18n="flow.n2b"  x="170" y="354">Chuyển tiếp khi cần</text>
         </g>
 
         <path class="farrow" d="M170 388 V 426" marker-end="url(#arwv)"/>
@@ -332,32 +350,32 @@
             <circle cx="10" cy="8" r="6"/>
             <path d="M0 24a10 10 0 0 1 20 0"/>
           </g>
-          <text class="flabel" x="170" y="520">Con người</text>
-          <text class="fmeta"  x="170" y="552">Việc cần phán đoán</text>
+          <text class="flabel" data-i18n="flow.n3" x="170" y="520">Con người</text>
+          <text class="fmeta" data-i18n="flow.n3m"  x="170" y="552">Việc cần phán đoán</text>
         </g>
       </svg>
     </div>
 
     <div class="ai__cards ai__cards--3">
       <article class="ai-card reveal">
-        <span class="ai-card__tag">AI Agent vận hành</span>
+        <span class="ai-card__tag" data-i18n="aic1.tag">AI Agent vận hành</span>
         <h3>OpenClaw</h3>
-        <p>Tiên phong đưa AI Agent vào giám sát hệ thống và bàn giao ca tự động — nâng độ tin cậy 24/7, giảm phụ thuộc vào đơn vị bên ngoài.</p>
-        <ul class="chips"><li>Giám sát 24/7</li><li>Bàn giao ca tự động</li><li>Giảm phụ thuộc vendor</li></ul>
+        <p data-i18n="aic1.p">Tiên phong đưa AI Agent vào giám sát hệ thống và bàn giao ca tự động — nâng độ tin cậy 24/7, giảm phụ thuộc vào đơn vị bên ngoài.</p>
+        <ul class="chips"><li data-i18n="aic1.c1">Giám sát 24/7</li><li data-i18n="aic1.c2">Bàn giao ca tự động</li><li data-i18n="aic1.c3">Giảm phụ thuộc vendor</li></ul>
       </article>
 
       <article class="ai-card reveal" data-delay="1">
-        <span class="ai-card__tag">Lõi AI đa tenant</span>
+        <span class="ai-card__tag" data-i18n="aic2.tag">Lõi AI đa tenant</span>
         <h3>FrontDesk AI</h3>
-        <p>Lõi AI sàng lọc &amp; tự động trả lời tin nhắn CSKH, nhiều đơn vị dùng chung trên một nền tảng multi-tenant.</p>
-        <ul class="chips"><li>Multi-tenant</li><li>CSKH tự động</li><li>Giảm tải nhân sự</li></ul>
+        <p data-i18n="aic2.p">Lõi AI sàng lọc &amp; tự động trả lời tin nhắn CSKH, nhiều đơn vị dùng chung trên một nền tảng multi-tenant.</p>
+        <ul class="chips"><li>Multi-tenant</li><li data-i18n="aic2.c2">CSKH tự động</li><li data-i18n="aic2.c3">Giảm tải nhân sự</li></ul>
       </article>
 
       <article class="ai-card reveal" data-delay="2">
-        <span class="ai-card__tag">Nền tảng tri thức</span>
-        <h3>Cổng tra cứu mã lỗi Gree</h3>
-        <p>Nền tảng tri thức giúp kỹ thuật viên tự tra cứu mã lỗi ngay tại hiện trường, giảm mạnh nhu cầu hỏi trực tiếp.</p>
-        <ul class="chips"><li>Self-service</li><li>Tra cứu tức thì</li><li>Chuẩn hoá tri thức</li></ul>
+        <span class="ai-card__tag" data-i18n="aic3.tag">Nền tảng tri thức</span>
+        <h3 data-i18n="aic3.h3">Cổng tra cứu mã lỗi Gree</h3>
+        <p data-i18n="aic3.p">Nền tảng tri thức giúp kỹ thuật viên tự tra cứu mã lỗi ngay tại hiện trường, giảm mạnh nhu cầu hỏi trực tiếp.</p>
+        <ul class="chips"><li>Self-service</li><li data-i18n="aic3.c2">Tra cứu tức thì</li><li data-i18n="aic3.c3">Chuẩn hoá tri thức</li></ul>
       </article>
     </div>
   </div>
@@ -367,9 +385,9 @@
 <section class="section" id="projects">
   <div class="wrap">
     <header class="section__head reveal">
-      <p class="kicker">Dự án tiêu biểu</p>
-      <h2>Vai trò &amp; kết quả</h2>
-      <p class="lead">Sắp xếp theo trọng số hệ thống &amp; vận hành — từ nền tảng lõi đến tự động hoá quy trình.</p>
+      <p class="kicker" data-i18n="prj.kicker">Dự án tiêu biểu</p>
+      <h2 data-i18n="prj.h2">Vai trò &amp; kết quả</h2>
+      <p class="lead" data-i18n="prj.lead">Sắp xếp theo trọng số hệ thống &amp; vận hành — từ nền tảng lõi đến tự động hoá quy trình.</p>
     </header>
 
     <div class="projects">
@@ -377,11 +395,11 @@
         <div class="project__thumb" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M10.6 5.4h2.8M12 18.2v.1"/></svg>
         </div>
-        <span class="project__org">Gree Việt Nam</span>
+        <span class="project__org" data-i18n="prj.orgGree">Gree Việt Nam</span>
         <h3>Gree App (G-App)</h3>
         <dl class="project__meta">
-          <div><dt>Vai trò</dt><dd>Dẫn dắt phát triển end-to-end (Laravel / React)</dd></div>
-          <div><dt>Kết quả</dt><dd>Nền tảng loyalty phục vụ gần <strong>200.000</strong> người dùng, hiệu năng &amp; bảo mật cao</dd></div>
+          <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj1.role">Dẫn dắt phát triển end-to-end (Laravel / React)</dd></div>
+          <div><dt data-i18n="prj.result">Kết quả</dt><dd data-i18n-html="prj1.res">Nền tảng loyalty phục vụ gần <strong>200.000</strong> người dùng, hiệu năng &amp; bảo mật cao</dd></div>
         </dl>
       </article>
 
@@ -389,11 +407,11 @@
         <div class="project__thumb" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.6"/><path d="M10 6.5h4M6.5 10v4"/></svg>
         </div>
-        <span class="project__org">Gree Việt Nam</span>
-        <h3>Tích hợp ERP &amp; hệ thống lõi</h3>
+        <span class="project__org" data-i18n="prj.orgGree">Gree Việt Nam</span>
+        <h3 data-i18n="prj2.t">Tích hợp ERP &amp; hệ thống lõi</h3>
         <dl class="project__meta">
-          <div><dt>Vai trò</dt><dd>Quản trị &amp; điều phối 4 nền tảng: ASoft, MISA, Hoàn Hảo Soft, BSC</dd></div>
-          <div><dt>Kết quả</dt><dd>Dòng dữ liệu thông suốt, toàn vẹn số liệu tài chính &amp; báo cáo</dd></div>
+          <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj2.role">Quản trị &amp; điều phối 4 nền tảng: ASoft, MISA, Hoàn Hảo Soft, BSC</dd></div>
+          <div><dt data-i18n="prj.result">Kết quả</dt><dd data-i18n="prj2.res">Dòng dữ liệu thông suốt, toàn vẹn số liệu tài chính &amp; báo cáo</dd></div>
         </dl>
       </article>
 
@@ -401,11 +419,11 @@
         <div class="project__thumb" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v13c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8v-13M4.5 12c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8"/></svg>
         </div>
-        <span class="project__org">Gree Việt Nam</span>
-        <h3>Nền móng hạ tầng CNTT</h3>
+        <span class="project__org" data-i18n="prj.orgGree">Gree Việt Nam</span>
+        <h3 data-i18n="prj3.t">Nền móng hạ tầng CNTT</h3>
         <dl class="project__meta">
-          <div><dt>Vai trò</dt><dd>Nhân sự IT đầu tiên — thiết lập &amp; chuẩn hoá toàn bộ khung vận hành</dd></div>
-          <div><dt>Kết quả</dt><dd>Chuyển từ hệ thống rời rạc sang hạ tầng doanh nghiệp bài bản</dd></div>
+          <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj3.role">Nhân sự IT đầu tiên — thiết lập &amp; chuẩn hoá toàn bộ khung vận hành</dd></div>
+          <div><dt data-i18n="prj.result">Kết quả</dt><dd data-i18n="prj3.res">Chuyển từ hệ thống rời rạc sang hạ tầng doanh nghiệp bài bản</dd></div>
         </dl>
       </article>
 
@@ -413,11 +431,11 @@
         <div class="project__thumb" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18M6.2 6.2l11.6 11.6M17.8 6.2 6.2 17.8"/><circle cx="12" cy="12" r="3.4" fill="currentColor" stroke="none"/></svg>
         </div>
-        <span class="project__org">Gree Việt Nam</span>
+        <span class="project__org" data-i18n="prj.orgGree">Gree Việt Nam</span>
         <h3>OpenClaw <span class="tag-ai">AI</span></h3>
         <dl class="project__meta">
-          <div><dt>Vai trò</dt><dd>Tiên phong triển khai AI Agent vào vận hành</dd></div>
-          <div><dt>Kết quả</dt><dd>Giám sát &amp; bàn giao ca tự động, tin cậy 24/7</dd></div>
+          <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj4.role">Tiên phong triển khai AI Agent vào vận hành</dd></div>
+          <div><dt data-i18n="prj.result">Kết quả</dt><dd data-i18n="prj4.res">Giám sát &amp; bàn giao ca tự động, tin cậy 24/7</dd></div>
         </dl>
       </article>
 
@@ -425,11 +443,11 @@
         <div class="project__thumb" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 0 1-12.3 7.6L3.5 21l1.4-4.4A8.5 8.5 0 1 1 20.5 12Z"/><path d="M8.5 11h7M8.5 14h4.5"/></svg>
         </div>
-        <span class="project__org">Sản phẩm cá nhân</span>
+        <span class="project__org" data-i18n="prj.orgSelf">Sản phẩm cá nhân</span>
         <h3>FrontDesk AI <span class="tag-ai">AI</span></h3>
         <dl class="project__meta">
-          <div><dt>Vai trò</dt><dd>Tự xây từ đầu</dd></div>
-          <div><dt>Kết quả</dt><dd>Multi-tenant, sàng lọc &amp; giảm tải CSKH</dd></div>
+          <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj5.role">Tự xây từ đầu</dd></div>
+          <div><dt data-i18n="prj.result">Kết quả</dt><dd data-i18n="prj5.res">Multi-tenant, sàng lọc &amp; giảm tải CSKH</dd></div>
         </dl>
       </article>
 
@@ -437,11 +455,11 @@
         <div class="project__thumb" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5Z"/><path d="M9 8h6M9 11.5h4"/></svg>
         </div>
-        <span class="project__org">Gree Việt Nam</span>
-        <h3>Cổng tra cứu mã lỗi <span class="tag-ai">AI</span></h3>
+        <span class="project__org" data-i18n="prj.orgGree">Gree Việt Nam</span>
+        <h3><span data-i18n="prj6.t">Cổng tra cứu mã lỗi</span> <span class="tag-ai">AI</span></h3>
         <dl class="project__meta">
-          <div><dt>Vai trò</dt><dd>Thiết kế &amp; triển khai</dd></div>
-          <div><dt>Kết quả</dt><dd>Hỗ trợ hàng trăm kỹ thuật viên tự tra cứu tại hiện trường</dd></div>
+          <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj6.role">Thiết kế &amp; triển khai</dd></div>
+          <div><dt data-i18n="prj.result">Kết quả</dt><dd data-i18n="prj6.res">Hỗ trợ hàng trăm kỹ thuật viên tự tra cứu tại hiện trường</dd></div>
         </dl>
       </article>
 
@@ -449,11 +467,11 @@
         <div class="project__thumb" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17M6 20.5V9l6-4.5L18 9v11.5"/><path d="M10 20.5v-5h4v5"/></svg>
         </div>
-        <span class="project__org">Hoa Sen Group</span>
-        <h3>ERP Kế toán quản trị</h3>
+        <span class="project__org" data-i18n="prj.orgHsg">Hoa Sen Group</span>
+        <h3 data-i18n="prj7.t">ERP Kế toán quản trị</h3>
         <dl class="project__meta">
-          <div><dt>Vai trò</dt><dd>Bảo trì &amp; nâng cấp hệ thống lõi (C# / .NET / SQL Server)</dd></div>
-          <div><dt>Kết quả</dt><dd>Báo cáo hợp nhất cho <strong>500+</strong> chi nhánh toàn quốc</dd></div>
+          <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj7.role">Bảo trì &amp; nâng cấp hệ thống lõi (C# / .NET / SQL Server)</dd></div>
+          <div><dt data-i18n="prj.result">Kết quả</dt><dd data-i18n-html="prj7.res">Báo cáo hợp nhất cho <strong>500+</strong> chi nhánh toàn quốc</dd></div>
         </dl>
       </article>
 
@@ -461,11 +479,11 @@
         <div class="project__thumb" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4"/><path d="M13.5 13.5h3v3h-3zM20 13.5v3M17.5 20.5H21"/></svg>
         </div>
-        <span class="project__org">NewLifePack</span>
-        <h3>QR-Check — Truy xuất nguồn gốc</h3>
+        <span class="project__org" data-i18n="prj.orgNlp">NewLifePack</span>
+        <h3 data-i18n="prj8.t">QR-Check — Truy xuất nguồn gốc</h3>
         <dl class="project__meta">
-          <div><dt>Vai trò</dt><dd>Chủ trì sản phẩm từ ý tưởng đến triển khai</dd></div>
-          <div><dt>Kết quả</dt><dd>Hệ sinh thái Website · CRM · ERP · App iOS/Android chống hàng giả</dd></div>
+          <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj8.role">Chủ trì sản phẩm từ ý tưởng đến triển khai</dd></div>
+          <div><dt data-i18n="prj.result">Kết quả</dt><dd data-i18n="prj8.res">Hệ sinh thái Website · CRM · ERP · App iOS/Android chống hàng giả</dd></div>
         </dl>
       </article>
 
@@ -473,16 +491,16 @@
         <div class="project__thumb" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 4.5 6v6c0 4.4 3.1 8.1 7.5 9.2 4.4-1.1 7.5-4.8 7.5-9.2V6Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>
         </div>
-        <span class="project__org">Gree Việt Nam</span>
-        <h3>Hệ thống bảo hành (BSC)</h3>
+        <span class="project__org" data-i18n="prj.orgGree">Gree Việt Nam</span>
+        <h3 data-i18n="prj9.t">Hệ thống bảo hành (BSC)</h3>
         <dl class="project__meta">
-          <div><dt>Vai trò</dt><dd>Chuyển đổi hệ thống cũ → mới</dd></div>
-          <div><dt>Kết quả</dt><dd>Vận hành ổn định, dễ mở rộng</dd></div>
+          <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj9.role">Chuyển đổi hệ thống cũ → mới</dd></div>
+          <div><dt data-i18n="prj.result">Kết quả</dt><dd data-i18n="prj9.res">Vận hành ổn định, dễ mở rộng</dd></div>
         </dl>
       </article>
     </div>
 
-    <p class="projects__more reveal">
+    <p class="projects__more reveal" data-i18n-html="prj.more">
       Ngoài ra: hệ thống chấm công &amp; tính lương (tự động hoá xác nhận công) ·
       TPBank eForm — 26 biểu mẫu mở tài khoản online ·
       hệ thống báo cáo đánh giá đại lý Samsung Việt Nam.
@@ -494,23 +512,23 @@
 <section class="section section--alt" id="experience">
   <div class="wrap">
     <header class="section__head reveal">
-      <p class="kicker">Kinh nghiệm</p>
-      <h2>Mốc thời gian</h2>
-      <p class="lead">Từ front-end &amp; quản lý team, qua hệ thống ERP quy mô tập đoàn, đến kiến trúc hệ thống và AI vận hành.</p>
+      <p class="kicker" data-i18n="exp.kicker">Kinh nghiệm</p>
+      <h2 data-i18n="exp.h2">Mốc thời gian</h2>
+      <p class="lead" data-i18n="exp.lead">Từ front-end &amp; quản lý team, qua hệ thống ERP quy mô tập đoàn, đến kiến trúc hệ thống và AI vận hành.</p>
     </header>
 
     <ol class="timeline">
       <li class="tl reveal">
-        <div class="tl__time">08/2024 — Nay</div>
+        <div class="tl__time" data-i18n="exp1.time">08/2024 — Nay</div>
         <div class="tl__body">
           <h3>Lead System Architect</h3>
           <p class="tl__org">Gree Việt Nam</p>
           <ul class="tl__points">
-            <li>Nhân sự IT đầu tiên — thiết lập &amp; chuẩn hoá toàn bộ khung vận hành CNTT của công ty.</li>
-            <li>Dẫn dắt phát triển G-App (Laravel/React) phục vụ gần 200.000 người dùng.</li>
-            <li>Quản trị SQL Server, tích hợp ERP ASoft · MISA · Hoàn Hảo Soft · BSC.</li>
-            <li>Áp dụng RBAC, dùng Python/PowerShell tự động hoá xử lý dữ liệu &amp; báo cáo tài chính.</li>
-            <li>Tiên phong triển khai AI Agent (OpenClaw) giám sát hệ thống 24/7.</li>
+            <li data-i18n="exp1.p1">Nhân sự IT đầu tiên — thiết lập &amp; chuẩn hoá toàn bộ khung vận hành CNTT của công ty.</li>
+            <li data-i18n="exp1.p2">Dẫn dắt phát triển G-App (Laravel/React) phục vụ gần 200.000 người dùng.</li>
+            <li data-i18n="exp1.p3">Quản trị SQL Server, tích hợp ERP ASoft · MISA · Hoàn Hảo Soft · BSC.</li>
+            <li data-i18n="exp1.p4">Áp dụng RBAC, dùng Python/PowerShell tự động hoá xử lý dữ liệu &amp; báo cáo tài chính.</li>
+            <li data-i18n="exp1.p5">Tiên phong triển khai AI Agent (OpenClaw) giám sát hệ thống 24/7.</li>
           </ul>
           <ul class="chips chips--light">
             <li>Laravel</li><li>React</li><li>SQL Server</li><li>Python</li><li>PowerShell</li><li>AI Agent</li>
@@ -524,8 +542,8 @@
           <h3>Technical Project Lead</h3>
           <p class="tl__org">Independent IT Consultant</p>
           <ul class="tl__points">
-            <li>Tư vấn lộ trình chuyển đổi số &amp; hệ thống quản trị web cho SME ngành nội thất, du lịch, y tế.</li>
-            <li>Xây dựng và duy trì danh mục website doanh nghiệp, tập trung trải nghiệm người dùng và thu hút khách hàng.</li>
+            <li data-i18n="exp2.p1">Tư vấn lộ trình chuyển đổi số &amp; hệ thống quản trị web cho SME ngành nội thất, du lịch, y tế.</li>
+            <li data-i18n="exp2.p2">Xây dựng và duy trì danh mục website doanh nghiệp, tập trung trải nghiệm người dùng và thu hút khách hàng.</li>
           </ul>
           <ul class="chips chips--light">
             <li>IT Roadmap</li><li>Web Systems</li><li>SME Consulting</li>
@@ -536,12 +554,12 @@
       <li class="tl reveal">
         <div class="tl__time">08/2020 — 12/2022</div>
         <div class="tl__body">
-          <h3>Product Owner — Dự án QR-Check</h3>
+          <h3 data-i18n="exp3.t">Product Owner — Dự án QR-Check</h3>
           <p class="tl__org">New Life Pack Co., Ltd</p>
           <ul class="tl__points">
-            <li>Đưa ý tưởng in nhãn mã biến đổi của Ban giám đốc thành sản phẩm số hoàn chỉnh.</li>
-            <li>Đánh giá khả thi, lập kế hoạch, tài liệu hoá và tìm đối tác phát triển.</li>
-            <li>Hệ thống gồm Website · CRM · ERP · App Android/iOS: chống hàng giả, truy xuất nguồn gốc, bảo hành online, quản lý phân phối &amp; tồn kho đại lý.</li>
+            <li data-i18n="exp3.p1">Đưa ý tưởng in nhãn mã biến đổi của Ban giám đốc thành sản phẩm số hoàn chỉnh.</li>
+            <li data-i18n="exp3.p2">Đánh giá khả thi, lập kế hoạch, tài liệu hoá và tìm đối tác phát triển.</li>
+            <li data-i18n="exp3.p3">Hệ thống gồm Website · CRM · ERP · App Android/iOS: chống hàng giả, truy xuất nguồn gốc, bảo hành online, quản lý phân phối &amp; tồn kho đại lý.</li>
           </ul>
           <ul class="chips chips--light">
             <li>Product</li><li>CRM/ERP</li><li>Mobile App</li><li>Digital Marketing</li>
@@ -555,9 +573,9 @@
           <h3>Management Accounting Systems</h3>
           <p class="tl__org">Hoa Sen Group (HSG)</p>
           <ul class="tl__points">
-            <li>Bảo trì &amp; nâng cấp hệ thống ERP lõi phục vụ hơn 500 chi nhánh và 3 trụ sở.</li>
-            <li>Báo cáo hợp nhất ngày/tuần/tháng cho Ban lãnh đạo.</li>
-            <li>Phối hợp Kiểm soát nội bộ xử lý lỗi phần mềm, đảm bảo vận hành liên tục.</li>
+            <li data-i18n="exp4.p1">Bảo trì &amp; nâng cấp hệ thống ERP lõi phục vụ hơn 500 chi nhánh và 3 trụ sở.</li>
+            <li data-i18n="exp4.p2">Báo cáo hợp nhất ngày/tuần/tháng cho Ban lãnh đạo.</li>
+            <li data-i18n="exp4.p3">Phối hợp Kiểm soát nội bộ xử lý lỗi phần mềm, đảm bảo vận hành liên tục.</li>
           </ul>
           <ul class="chips chips--light">
             <li>C# / .NET</li><li>SQL Server</li><li>DevExpress</li><li>Firebird</li>
@@ -571,10 +589,10 @@
           <h3>Team Leader · Front-End · QC/PM</h3>
           <p class="tl__org">Kyanon Digital (Ky Anh Online Technology)</p>
           <ul class="tl__points">
-            <li>Quản lý team 7 người, phụ trách báo cáo đánh giá thương hiệu Samsung trên hệ thống đại lý bán lẻ tại Việt Nam.</li>
-            <li>Front-End cho các chiến dịch Samsung (landing page, corporate web, EDM Samsung Mobile).</li>
-            <li>Front-End dự án TPBank eForm — 26 biểu mẫu mở tài khoản trực tuyến.</li>
-            <li>PM các dự án phần mềm chấm công/tính lương và quản lý bán hàng ngành tôn thép (.NET, SQL Server).</li>
+            <li data-i18n="exp5.p1">Quản lý team 7 người, phụ trách báo cáo đánh giá thương hiệu Samsung trên hệ thống đại lý bán lẻ tại Việt Nam.</li>
+            <li data-i18n="exp5.p2">Front-End cho các chiến dịch Samsung (landing page, corporate web, EDM Samsung Mobile).</li>
+            <li data-i18n="exp5.p3">Front-End dự án TPBank eForm — 26 biểu mẫu mở tài khoản trực tuyến.</li>
+            <li data-i18n="exp5.p4">PM các dự án phần mềm chấm công/tính lương và quản lý bán hàng ngành tôn thép (.NET, SQL Server).</li>
           </ul>
           <ul class="chips chips--light">
             <li>Team Lead</li><li>Front-End</li><li>QC</li><li>Project Management</li>
@@ -585,12 +603,12 @@
 
     <div class="edu reveal">
       <div class="edu__item">
-        <h4>Học vấn</h4>
-        <p><strong>Đại học Tôn Đức Thắng</strong> — Công nghệ thông tin (2008 — 2012)</p>
+        <h4 data-i18n="edu.h1">Học vấn</h4>
+        <p data-i18n-html="edu.p1"><strong>Đại học Tôn Đức Thắng</strong> — Công nghệ thông tin (2008 — 2012)</p>
       </div>
       <div class="edu__item">
-        <h4>Chứng chỉ</h4>
-        <p><strong>Website Developer</strong> · <strong>Advanced PHP Programming</strong> — Trung tâm Nhất Nghệ (2011 — 2012)</p>
+        <h4 data-i18n="edu.h2">Chứng chỉ</h4>
+        <p data-i18n-html="edu.p2"><strong>Website Developer</strong> · <strong>Advanced PHP Programming</strong> — Trung tâm Nhất Nghệ (2011 — 2012)</p>
       </div>
     </div>
   </div>
@@ -600,9 +618,9 @@
 <section class="section" id="skills">
   <div class="wrap">
     <header class="section__head reveal">
-      <p class="kicker">Kỹ năng</p>
-      <h2>Bốn nhóm năng lực</h2>
-      <p class="lead">Trọng tâm ở quản trị hệ thống và vận hành — công nghệ phát triển là công cụ phục vụ cho hai việc đó.</p>
+      <p class="kicker" data-i18n="sk.kicker">Kỹ năng</p>
+      <h2 data-i18n="sk.h2">Bốn nhóm năng lực</h2>
+      <p class="lead" data-i18n="sk.lead">Trọng tâm ở quản trị hệ thống và vận hành — công nghệ phát triển là công cụ phục vụ cho hai việc đó.</p>
     </header>
 
     <div class="skills skills--4">
@@ -610,10 +628,10 @@
         <span class="skill__ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 4.5 6v6c0 4.4 3.1 8.1 7.5 9.2 4.4-1.1 7.5-4.8 7.5-9.2V6Z"/><circle cx="12" cy="11" r="2.2"/><path d="M12 13.2v3"/></svg>
         </span>
-        <h3>Quản trị &amp; Vận hành</h3>
+        <h3 data-i18n="sk1.t">Quản trị &amp; Vận hành</h3>
         <ul class="pills">
-          <li>IT Governance (RBAC)</li><li>Quản lý dự án</li><li>Quản lý vendor</li>
-          <li>Triển khai ERP</li><li>Xây dựng hạ tầng từ đầu</li>
+          <li data-i18n="sk1.a">IT Governance (RBAC)</li><li data-i18n="sk1.b">Quản lý dự án</li><li data-i18n="sk1.c">Quản lý vendor</li>
+          <li data-i18n="sk1.d">Triển khai ERP</li><li data-i18n="sk1.e">Xây dựng hạ tầng từ đầu</li>
         </ul>
       </div>
 
@@ -621,10 +639,10 @@
         <span class="skill__ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18M6.2 6.2l11.6 11.6M17.8 6.2 6.2 17.8"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg>
         </span>
-        <h3>AI &amp; Automation</h3>
+        <h3 data-i18n="sk2.t">AI &amp; Automation</h3>
         <ul class="pills">
-          <li>AI Agent vận hành</li><li>Hệ thống AI đa tenant</li><li>Workflow tự động</li>
-          <li>Python / PowerShell</li><li>Tích hợp API</li>
+          <li data-i18n="sk2.a">AI Agent vận hành</li><li data-i18n="sk2.b">Hệ thống AI đa tenant</li><li data-i18n="sk2.c">Workflow tự động</li>
+          <li>Python / PowerShell</li><li data-i18n="sk2.e">Tích hợp API</li>
         </ul>
       </div>
 
@@ -632,10 +650,10 @@
         <span class="skill__ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v13c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8v-13M4.5 12c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8"/></svg>
         </span>
-        <h3>Dữ liệu &amp; Hệ thống</h3>
+        <h3 data-i18n="sk3.t">Dữ liệu &amp; Hệ thống</h3>
         <ul class="pills">
-          <li>SQL Server Administration</li><li>Server Management</li>
-          <li>Tích hợp dữ liệu đa nền tảng</li><li>Bảo mật &amp; phân quyền</li>
+          <li data-i18n="sk3.a">SQL Server Administration</li><li data-i18n="sk3.b">Server Management</li>
+          <li data-i18n="sk3.c">Tích hợp dữ liệu đa nền tảng</li><li data-i18n="sk3.d">Bảo mật &amp; phân quyền</li>
         </ul>
       </div>
 
@@ -643,10 +661,10 @@
         <span class="skill__ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8.5 8-4 4 4 4M15.5 8l4 4-4 4M13.4 5.2l-2.8 13.6"/></svg>
         </span>
-        <h3>Phát triển ứng dụng</h3>
+        <h3 data-i18n="sk4.t">Phát triển ứng dụng</h3>
         <ul class="pills">
           <li>Laravel</li><li>React</li><li>.NET / C#</li><li>PHP</li>
-          <li>FastAPI</li><li>Web &amp; Mobile App</li>
+          <li>FastAPI</li><li data-i18n="sk4.f">Web &amp; Mobile App</li>
         </ul>
       </div>
     </div>
@@ -658,23 +676,23 @@
   <div class="ai__grid" aria-hidden="true"></div>
 
   <div class="wrap contact__inner reveal">
-    <p class="kicker kicker--on-dark">Liên hệ</p>
-    <h2>Sẵn sàng trao đổi</h2>
-    <p class="contact__lead">Về vận hành hệ thống hoặc ứng dụng AI vào doanh nghiệp của bạn.</p>
+    <p class="kicker kicker--on-dark" data-i18n="ct.kicker">Liên hệ</p>
+    <h2 data-i18n="ct.h2">Sẵn sàng trao đổi</h2>
+    <p class="contact__lead" data-i18n="ct.lead">Về vận hành hệ thống hoặc ứng dụng AI vào doanh nghiệp của bạn.</p>
 
     <div class="contact__links">
       <a class="clink" href="https://zalo.me/0973705507" target="_blank" rel="noopener">
         <span class="clink__ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.4c0 4.1-3.8 7.5-8.5 7.5-1 0-2-.16-2.9-.45L4.5 20.2l1.5-3.9A7.2 7.2 0 0 1 4 11.4C4 7.3 7.8 4 12.5 4S21 7.3 21 11.4Z"/></svg>
         </span>
-        <span class="clink__txt"><strong>Zalo</strong><em>Nhắn tin trực tiếp</em></span>
+        <span class="clink__txt"><strong>Zalo</strong><em data-i18n="ct.zaloSub">Nhắn tin trực tiếp</em></span>
       </a>
 
       <a class="clink" href="tel:+84858668844">
         <span class="clink__ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 3.5h3l1.5 3.8-2 1.4a12 12 0 0 0 5.6 5.6l1.4-2 3.8 1.5v3a1.7 1.7 0 0 1-1.9 1.7C10.4 17.9 6.1 13.6 4.5 5.4a1.7 1.7 0 0 1 1.7-1.9Z"/></svg>
         </span>
-        <span class="clink__txt"><strong>Điện thoại</strong><em>0858 668 844</em></span>
+        <span class="clink__txt"><strong data-i18n="ct.phone">Điện thoại</strong><em>0858 668 844</em></span>
       </a>
 
       <a class="clink" href="mailto:namleduc@hotmail.com">
@@ -699,14 +717,15 @@
 <footer class="site-footer">
   <div class="wrap footer__inner">
     <p>© <span id="year">2026</span> Lê Đức Nam — leducnam.com</p>
-    <p class="footer__note">IT Manager · Vận hành hệ thống &amp; ứng dụng AI</p>
+    <p class="footer__note" data-i18n="footer.note">IT Manager · Vận hành hệ thống &amp; ứng dụng AI</p>
   </div>
 </footer>
 
-<a class="to-top" id="toTop" href="#top" aria-label="Về đầu trang">
+<a class="to-top" id="toTop" href="#top" aria-label="Về đầu trang" data-i18n-aria-label="a11y.top">
   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
 </a>
 
+<script src="assets/js/i18n.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>

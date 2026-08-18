@@ -26,22 +26,122 @@
     });
   }
 
-  /* ---------- 2. Menu mobile ---------- */
   var nav = document.getElementById('nav');
   var navToggle = document.getElementById('navToggle');
+
+  /* ---------- 1b. Ngôn ngữ (vi / en / zh) ---------- */
+  var LANGS = {
+    vi: { code: 'VI', htmlLang: 'vi' },
+    en: { code: 'EN', htmlLang: 'en' },
+    zh: { code: 'ZH', htmlLang: 'zh-Hans' }
+  };
+  var DEFAULT_LANG = 'vi';
+  var currentLang = DEFAULT_LANG;
+
+  function pickLang() {
+    // Tiếng Việt là mặc định. Chỉ đổi khi có ?lang= trên URL
+    // hoặc khi khách đã tự chọn ngôn ngữ khác trước đó.
+    var q = (location.search.match(/[?&]lang=([a-z-]+)/i) || [])[1];
+    if (q && LANGS[q.toLowerCase()]) return q.toLowerCase();
+
+    var stored = null;
+    try { stored = localStorage.getItem('ldn-lang'); } catch (e) {}
+    if (stored && LANGS[stored]) return stored;
+
+    return DEFAULT_LANG;
+  }
+
+  function applyLang(lang) {
+    var dict = (window.I18N && window.I18N[lang]) || (window.I18N && window.I18N[DEFAULT_LANG]);
+    if (!dict) return;
+
+    currentLang = lang;
+    root.setAttribute('lang', LANGS[lang].htmlLang);
+
+    var pairs = [
+      ['data-i18n', function (el, v) { el.textContent = v; }],
+      ['data-i18n-html', function (el, v) { el.innerHTML = v; }],
+      ['data-i18n-alt', function (el, v) { el.setAttribute('alt', v); }],
+      ['data-i18n-aria-label', function (el, v) { el.setAttribute('aria-label', v); }]
+    ];
+
+    pairs.forEach(function (pair) {
+      var attr = pair[0], set = pair[1];
+      Array.prototype.forEach.call(document.querySelectorAll('[' + attr + ']'), function (el) {
+        var v = dict[el.getAttribute(attr)];
+        if (v !== undefined) set(el, v);
+      });
+    });
+
+    if (dict['meta.title']) document.title = dict['meta.title'];
+    var md = document.querySelector('meta[name="description"]');
+    if (md && dict['meta.desc']) md.setAttribute('content', dict['meta.desc']);
+
+    // nút menu mobile lấy nhãn theo trạng thái đang mở/đóng
+    if (navToggle) {
+      var open = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-label', dict[open ? 'a11y.menuClose' : 'a11y.menuOpen']);
+    }
+
+    var flag = document.getElementById('langFlag');
+    var code = document.getElementById('langCode');
+    if (flag) flag.className = 'flag flag--' + lang;
+    if (code) code.textContent = LANGS[lang].code;
+
+    Array.prototype.forEach.call(document.querySelectorAll('#langMenu [data-lang]'), function (b) {
+      b.setAttribute('aria-selected', String(b.getAttribute('data-lang') === lang));
+    });
+
+    try { localStorage.setItem('ldn-lang', lang); } catch (e) {}
+  }
+
+  var langBox = document.getElementById('lang');
+  var langBtn = document.getElementById('langBtn');
+
+  function closeLang() {
+    if (!langBox) return;
+    langBox.classList.remove('is-open');
+    langBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  if (langBox && langBtn) {
+    langBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = langBox.classList.toggle('is-open');
+      langBtn.setAttribute('aria-expanded', String(open));
+    });
+
+    Array.prototype.forEach.call(langBox.querySelectorAll('[data-lang]'), function (b) {
+      b.addEventListener('click', function () {
+        applyLang(b.getAttribute('data-lang'));
+        closeLang();
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!langBox.contains(e.target)) closeLang();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLang();
+    });
+  }
+
+  /* ---------- 2. Menu mobile ---------- */
 
   function closeNav() {
     if (!nav) return;
     nav.classList.remove('is-open');
     navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.setAttribute('aria-label', 'Mở menu');
+    var d0 = (window.I18N && window.I18N[currentLang]) || {};
+    navToggle.setAttribute('aria-label', d0['a11y.menuOpen'] || 'Mở menu');
   }
 
   if (nav && navToggle) {
     navToggle.addEventListener('click', function () {
       var open = nav.classList.toggle('is-open');
       navToggle.setAttribute('aria-expanded', String(open));
-      navToggle.setAttribute('aria-label', open ? 'Đóng menu' : 'Mở menu');
+      var d = (window.I18N && window.I18N[currentLang]) || {};
+      navToggle.setAttribute('aria-label', d[open ? 'a11y.menuClose' : 'a11y.menuOpen'] || (open ? 'Đóng menu' : 'Mở menu'));
     });
 
     nav.addEventListener('click', function (e) {
@@ -180,4 +280,7 @@
   /* ---------- 8. Năm ở footer ---------- */
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
+
+  /* ---------- 9. Áp dụng ngôn ngữ ---------- */
+  applyLang(pickLang());
 })();
