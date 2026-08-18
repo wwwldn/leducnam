@@ -15,6 +15,30 @@ Mở `index.html` bằng trình duyệt là chạy.
 8. Kỹ năng — 4 nhóm
 9. Liên hệ
 
+## Logo thương hiệu
+
+Dải logo dưới hero tự nhận file — **không cần sửa code**. Chỉ cần thả file vào:
+
+```
+assets/img/logos/gree.svg          (đang dùng gree.png)
+assets/img/logos/hoasen.svg
+assets/img/logos/samsung.svg
+assets/img/logos/tpbank.svg
+assets/img/logos/kyanon.svg
+assets/img/logos/newlifepack.svg
+```
+
+Nhận `.svg` → `.png` → `.webp` (ưu tiên svg). Có file thì hiện logo, chưa có thì
+giữ nguyên chữ — nên thiếu file không làm vỡ gì.
+
+Logo được tô **một màu** bằng CSS mask nên file gốc màu gì cũng hợp tông và tự
+đổi màu theo giao diện sáng/tối. Vì chỉ dùng kênh alpha, **file logo trắng trên
+nền trong suốt vẫn dùng tốt**. Chiều cao cố định 30px, chiều rộng tự tính theo
+tỉ lệ ảnh.
+
+Muốn thêm thương hiệu: thêm một `<li data-logo="slug">` trong mục `.brands__list`
+của `index.html`, đặt file tên `slug.svg`.
+
 ## Đa ngôn ngữ
 
 Ba thứ tiếng: **Tiếng Việt (mặc định)** · English · 中文. Nút cờ ở góc phải header.

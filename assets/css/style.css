@@ -366,12 +366,27 @@ html[data-theme="dark"] .ico-moon{display:block}
   gap:.7rem clamp(1.4rem,4vw,3.4rem);
 }
 .brands__list li{
-  display:flex;align-items:baseline;gap:.42rem;
+  display:flex;align-items:center;gap:.42rem;
   color:var(--ink-2);
-  filter:grayscale(1);opacity:.72;
+  opacity:.72;
   transition:opacity .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
 }
 .brands__list li:hover{opacity:1;color:var(--ai);transform:translateY(-2px)}
+
+/* Logo thật: tô một màu bằng mask nên file gốc màu gì cũng hợp tông,
+   và tự đổi màu theo giao diện sáng/tối. Chưa có file thì giữ chữ. */
+.blogo{display:none}
+.brands__list li.has-logo .blogo{
+  display:block;height:30px;
+  background:currentColor;
+  -webkit-mask:var(--logo) center/contain no-repeat;
+          mask:var(--logo) center/contain no-repeat;
+}
+.brands__list li.has-logo .bword{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0;
+}
+.bword{display:flex;align-items:baseline;gap:.42rem}
 .brands__list span{
   font-size:clamp(1.05rem,2.2vw,1.34rem);font-weight:800;letter-spacing:-.02em;
 }

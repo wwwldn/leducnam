@@ -277,6 +277,38 @@
     if (portraitImg.complete && portraitImg.naturalWidth === 0) markEmpty();
   }
 
+  /* ---------- 7b. Logo thương hiệu ---------- */
+  /* Thả file assets/img/logos/<slug>.svg (hoặc .png/.webp) là logo tự thay chữ.
+     slug lấy từ data-logo trên mỗi <li>. */
+  Array.prototype.forEach.call(document.querySelectorAll('.brands__list [data-logo]'), function (li) {
+    var base = 'assets/img/logos/' + li.getAttribute('data-logo') + '.';
+    var exts = ['svg', 'png', 'webp'];   // ưu tiên svg, không có thì thử png
+    var i = 0, src = '';
+    var probe = new Image();
+
+    probe.onerror = function () {
+      if (++i < exts.length) { src = base + exts[i]; probe.src = src; }
+    };
+
+    probe.onload = function () {
+      var box = li.querySelector('.blogo');
+      if (!box) return;
+      var ratio = (probe.naturalWidth && probe.naturalHeight)
+        ? probe.naturalWidth / probe.naturalHeight : 3;
+      // giới hạn để logo quá dài hoặc quá vuông không phá nhịp hàng
+      ratio = Math.max(1, Math.min(ratio, 5));
+      // URL phải tuyệt đối: đường dẫn tương đối trong custom property được
+      // phân giải theo vị trí file CSS, không phải file HTML.
+      var abs = (typeof URL === 'function') ? new URL(src, document.baseURI).href : src;
+      box.style.setProperty('--logo', 'url("' + abs + '")');
+      box.style.width = Math.round(30 * ratio) + 'px';
+      li.classList.add('has-logo');
+    };
+
+    src = base + exts[0];
+    probe.src = src;
+  });
+
   /* ---------- 8. Năm ở footer ---------- */
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
