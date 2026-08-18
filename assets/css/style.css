@@ -373,14 +373,18 @@ html[data-theme="dark"] .ico-moon{display:block}
 }
 .brands__list li:hover{opacity:1;color:var(--ai);transform:translateY(-2px)}
 
-/* Logo thật: tô một màu bằng mask nên file gốc màu gì cũng hợp tông,
-   và tự đổi màu theo giao diện sáng/tối. Chưa có file thì giữ chữ. */
-.blogo{display:none;height:38px}
+/* Logo thật, giữ màu thương hiệu. Không dùng mask tô một màu được vì ba logo
+   là badge nền màu đặc — tô một màu sẽ biến chúng thành khối vuông đặc. */
+.blogo{display:none;height:46px}
+.brands__list li.has-logo{opacity:.92}
+.brands__list li.has-logo:hover{opacity:1;transform:translateY(-2px)}
 .brands__list li.has-logo .blogo{
-  display:block;height:30px;
-  background:currentColor;
-  -webkit-mask:var(--logo) center/contain no-repeat;
-          mask:var(--logo) center/contain no-repeat;
+  display:block;
+  background:var(--logo) center/contain no-repeat;
+}
+/* Nền tối: logo chữ xanh đậm sẽ chìm, lót tấm trắng cho dễ đọc. */
+html[data-theme="dark"] .brands__list li.has-logo{
+  background:#fff;border-radius:10px;padding:7px 13px;
 }
 .brands__list li.has-logo .bword{
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;

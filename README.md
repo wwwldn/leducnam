@@ -20,12 +20,12 @@ Mở `index.html` bằng trình duyệt là chạy.
 Dải logo dưới hero tự nhận file — **không cần sửa code**. Chỉ cần thả file vào:
 
 ```
-assets/img/logos/gree.svg          (đang dùng gree.png)
-assets/img/logos/hoasen.svg
-assets/img/logos/samsung.svg
-assets/img/logos/tpbank.svg
-assets/img/logos/kyanon.svg
-assets/img/logos/newlifepack.svg
+assets/img/logos/gree.png          ✓
+assets/img/logos/hoasen.png        ✓
+assets/img/logos/samsung.png       ✓
+assets/img/logos/tpbank.png        ✓
+assets/img/logos/kyanon.png        ✓
+assets/img/logos/newlifepack.png   ✓
 ```
 
 Nhận `.svg` → `.png` → `.webp` (ưu tiên svg). Có file thì hiện logo, chưa có thì
@@ -43,8 +43,9 @@ Hai chỗ hoạt động khác nhau:
 logo dạng badge vốn đã có nền màu riêng). Nền tối thì logo được lót một tấm
 trắng, vì logo chữ xanh đậm như Gree hay Samsung sẽ chìm mất.
 
-**Dải thương hiệu tô một màu** theo kiểu logo wall cho gọn, tự đổi màu theo
-giao diện sáng/tối.
+**Dải thương hiệu cũng dùng màu thật.** Ban đầu định tô một màu theo kiểu logo
+wall, nhưng ba logo là badge nền màu đặc — tô một màu sẽ biến chúng thành khối
+vuông đặc, mất hết nhận diện.
 
 Kích thước tự cân theo tỉ lệ ảnh: logo ngang dài (Samsung) và logo vuông
 (TPBank) mà cùng chiều cao thì cái dài trông to gấp mấy lần, nên chiều cao được

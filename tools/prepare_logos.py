@@ -20,15 +20,18 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEST = os.path.join(ROOT, 'assets', 'img', 'logos')
 SRC_DIR = r'C:/Users/greev/Downloads/logo'
 
-# slug -> (file nguồn, gỡ nền?, là badge nền màu?, cắt trước theo tỉ lệ (l,t,r,b) hoặc None)
+# slug -> (file nguồn, gỡ nền?, là badge nền màu?, cắt trước theo tỉ lệ (l,t,r,b), ngưỡng gỡ nền)
+# Ngưỡng cao hơn cho ảnh JPEG: nén JPEG để lại quầng sáng quanh nét, ngưỡng thấp
+# sẽ chừa lại viền trắng lởm chởm.
 LOGOS = {
-    'gree':        ('images.png', True,  False, None),
-    'samsung':     ('360_197_1.avif', True, False, None),
+    'gree':        ('images.png', True, False, None, 26),
+    'samsung':     ('360_197_1.avif', True, False, None, 26),
     'tpbank':      ('3277505605104805445339628395349686489874147n-167715087765358226074.webp',
-                    False, True, None),
+                    False, True, None, 0),
     'newlifepack': ('514315871_1187796163364778_8433207760662946134_n.jpg',
-                    False, True, (0.0, 0.0, 1.0, 0.74)),   # bỏ dòng "XÃ CỦ CHI TP.HCM"
-    'hoasen':      ('logo-hsg.png', False, True, None),
+                    False, True, (0.0, 0.0, 1.0, 0.74), 0),   # bỏ dòng "XÃ CỦ CHI TP.HCM"
+    'hoasen':      ('logo-hsg.png', False, True, None, 0),
+    'kyanon':      ('kyanon_logo.jpg', True, False, None, 62),   # JPEG, cần ngưỡng cao
 }
 
 TARGET_H = 120          # cao chuẩn, đủ nét cho màn Retina ở ~30–40px
@@ -88,8 +91,10 @@ def main():
     if not os.path.isdir(DEST):
         os.makedirs(DEST)
 
-    for slug, (fname, strip_bg, badge, crop) in LOGOS.items():
+    for slug, (fname, strip_bg, badge, crop, tol) in LOGOS.items():
         path = os.path.join(SRC_DIR, fname)
+        if not os.path.exists(path):
+            path = os.path.join(os.path.dirname(SRC_DIR), fname)   # thu thu muc cha
         if not os.path.exists(path):
             print('  bo qua %-12s (khong co file)' % slug)
             continue
@@ -102,7 +107,7 @@ def main():
                           int(w * crop[2]), int(h * crop[3])))
 
         if strip_bg:
-            im = drop_background(im)
+            im = drop_background(im, tol)
             bbox = im.split()[3].getbbox()
             if bbox:
                 im = im.crop(bbox)
