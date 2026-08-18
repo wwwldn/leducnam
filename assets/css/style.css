@@ -607,15 +607,26 @@ html[data-theme="dark"] .ico-moon{display:block}
   font-size:.72rem;font-weight:700;letter-spacing:.09em;
   text-transform:uppercase;color:var(--ai);margin-bottom:.4rem;
 }
-/* Ô icon của thẻ dự án: có file logo thì logo thay icon, chưa có thì giữ icon. */
-.project__thumb .blogo{height:24px;max-width:40px}
+/* Ô icon của thẻ dự án: có file logo thì logo MÀU THẬT thay icon, chưa có
+   thì giữ icon line-art. Logo bỏ hẳn khung viền — khung lồng khung nhìn rối,
+   và logo dạng badge vốn đã có nền màu riêng. */
+.project__thumb .blogo{height:34px}
+.project__thumb.has-logo{
+  background:none;border:0;padding:0;
+  width:auto;height:auto;min-height:36px;
+  display:inline-flex;align-items:center;
+  margin-bottom:1.1rem;
+}
 .project__thumb.has-logo .blogo{
   display:block;
-  background:currentColor;
-  -webkit-mask:var(--logo) center/contain no-repeat;
-          mask:var(--logo) center/contain no-repeat;
+  background:var(--logo) left center/contain no-repeat;
 }
 .project__thumb.has-logo > svg{display:none}
+
+/* Nền tối: logo chữ xanh đậm (Gree, Samsung) sẽ chìm, nên lót một tấm trắng. */
+html[data-theme="dark"] .project__thumb.has-logo{
+  background:#fff;border-radius:10px;padding:5px 9px;
+}
 .project__meta dd strong{color:var(--ink);font-weight:800}
 
 .projects__more{

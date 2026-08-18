@@ -304,9 +304,17 @@
       var abs = (typeof URL === 'function') ? new URL(probe.src, document.baseURI).href : probe.src;
 
       done(true, function () {
-        var h = parseFloat(window.getComputedStyle(box).height) || 30;
+        var base = parseFloat(window.getComputedStyle(box).height) || 30;
+
+        // Cân thị giác: logo ngang dài (Samsung) và logo vuông (TPBank) mà
+        // cùng chiều cao thì cái dài trông to gấp mấy lần. Hạ chiều cao theo
+        // độ dài của logo — số mũ 0.35 là mức vừa phải giữa "cùng chiều cao"
+        // (mũ 0) và "cùng diện tích" (mũ 0.5, làm wordmark bé quá).
+        var h = base / Math.pow(ratio, 0.35);
+
         box.style.setProperty('--logo', 'url("' + abs + '")');
-        box.style.width = Math.round(h * ratio) + 'px';
+        box.style.height = h.toFixed(1) + 'px';
+        box.style.width = (h * ratio).toFixed(1) + 'px';
         el.classList.add('has-logo');
       });
     };

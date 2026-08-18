@@ -39,10 +39,30 @@ Hai chỗ hoạt động khác nhau:
   sáu** thương hiệu đều có file. Một logo đứng cạnh năm dòng chữ trông như lỗi,
   nên khi còn thiếu thì giữ nguyên toàn bộ chữ.
 
-Logo được tô **một màu** bằng CSS mask nên file gốc màu gì cũng hợp tông và tự
-đổi màu theo giao diện sáng/tối. Vì chỉ dùng kênh alpha, **file logo trắng trên
-nền trong suốt vẫn dùng tốt**. Chiều cao cố định 30px, chiều rộng tự tính theo
-tỉ lệ ảnh.
+**Thẻ dự án dùng logo màu thật**, bỏ khung viền (khung lồng khung nhìn rối, và
+logo dạng badge vốn đã có nền màu riêng). Nền tối thì logo được lót một tấm
+trắng, vì logo chữ xanh đậm như Gree hay Samsung sẽ chìm mất.
+
+**Dải thương hiệu tô một màu** theo kiểu logo wall cho gọn, tự đổi màu theo
+giao diện sáng/tối.
+
+Kích thước tự cân theo tỉ lệ ảnh: logo ngang dài (Samsung) và logo vuông
+(TPBank) mà cùng chiều cao thì cái dài trông to gấp mấy lần, nên chiều cao được
+hạ dần theo độ dài.
+
+### Chuẩn hoá file nguồn
+
+Logo tải về thường mỗi cái một kiểu — nền trắng, badge nền màu, dính chữ thừa,
+kích thước loạn. Có script đưa hết về một chuẩn:
+
+```
+python tools/prepare_logos.py
+```
+
+Script đọc thư mục nguồn khai báo trong `SRC_DIR`, gỡ nền trắng bằng flood fill
+từ 4 góc (giữ nguyên mảng âm bên trong logo), bo góc cho badge nền màu, cắt sát
+nội dung rồi xuất PNG cao 120px vào `assets/img/logos/`. Thêm logo mới thì thêm
+một dòng vào `LOGOS` trong script.
 
 Cùng bộ file đó dùng cho **cả hai chỗ**: dải thương hiệu (cao 30px) và dòng
 tên công ty trên từng thẻ dự án (cao 18px). Thêm file một lần là hiện ở cả hai.
