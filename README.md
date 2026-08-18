@@ -189,6 +189,26 @@ robots.txt / sitemap.xml
 | Email | namleduc@hotmail.com | `mailto:` |
 | GitHub | github.com/wwwldn | |
 
+## Địa chỉ gốc
+
+Các thẻ `canonical`, `og:url`, `og:image`, `hreflang`, JSON-LD và `sitemap.xml`
+bắt buộc ghi URL đầy đủ, đang trỏ `https://leducnam.com/`.
+
+**Chừng nào tên miền chưa hoạt động** thì trang chỉ chạy ở
+`https://wwwldn.github.io/leducnam/`, và ở địa chỉ đó:
+
+- share link lên Zalo/Facebook **không có ảnh thumbnail** (`og:image` trỏ domain chưa có)
+- Google **không index** vì canonical chỉ sang một URL chưa phản hồi
+
+Mua domain và trỏ về GitHub Pages xong thì mọi thứ tự đúng, không phải sửa gì.
+Nếu cần đổi tạm để xem thử:
+
+```
+python tools/set_base_url.py                                   # xem đang dùng gì
+python tools/set_base_url.py https://wwwldn.github.io/leducnam/
+python tools/set_base_url.py https://leducnam.com/             # đổi ngược lại
+```
+
 ## Deploy
 
 - **GitHub Pages / Cloudflare Pages / Netlify**: push repo → trỏ root, không cần build command.
