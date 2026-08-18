@@ -31,6 +31,14 @@ assets/img/logos/newlifepack.svg
 Nhận `.svg` → `.png` → `.webp` (ưu tiên svg). Có file thì hiện logo, chưa có thì
 giữ nguyên chữ — nên thiếu file không làm vỡ gì.
 
+Hai chỗ hoạt động khác nhau:
+
+- **Thẻ dự án** — logo thay icon vuông, đổi riêng từng thẻ. Thẻ nào có file thì
+  đổi thẻ đó, thẻ khác giữ icon. Tên công ty vẫn hiện bằng chữ ở dòng dưới.
+- **Dải thương hiệu** — chạy kiểu *đủ mới đổi*: chỉ chuyển sang logo khi **cả
+  sáu** thương hiệu đều có file. Một logo đứng cạnh năm dòng chữ trông như lỗi,
+  nên khi còn thiếu thì giữ nguyên toàn bộ chữ.
+
 Logo được tô **một màu** bằng CSS mask nên file gốc màu gì cũng hợp tông và tự
 đổi màu theo giao diện sáng/tối. Vì chỉ dùng kênh alpha, **file logo trắng trên
 nền trong suốt vẫn dùng tốt**. Chiều cao cố định 30px, chiều rộng tự tính theo
@@ -57,6 +65,10 @@ Ba thứ tiếng: **Tiếng Việt (mặc định)** · English · 中文. Nút 
 - Link chia sẻ theo ngôn ngữ: `leducnam.com/?lang=en`, `leducnam.com/?lang=zh`.
 
 ### Sửa nội dung
+
+> ⚠️ Sửa `style.css`, `main.js` hay `i18n.js` xong thì chạy
+> `python tools/bump_version.py` để đổi số `?v=` trên link trong `index.html`.
+> Quên bước này thì trình duyệt vẫn dùng bản cũ trong cache và tưởng là code lỗi.
 
 Sửa ở `i18n.js` chứ **không** sửa thẳng trong `index.html` — chữ trong HTML chỉ là
 bản dự phòng khi JS chưa chạy, còn thứ hiển thị thật là giá trị trong `i18n.js`.

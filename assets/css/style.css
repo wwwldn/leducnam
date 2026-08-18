@@ -375,7 +375,7 @@ html[data-theme="dark"] .ico-moon{display:block}
 
 /* Logo thật: tô một màu bằng mask nên file gốc màu gì cũng hợp tông,
    và tự đổi màu theo giao diện sáng/tối. Chưa có file thì giữ chữ. */
-.blogo{display:none;height:30px}
+.blogo{display:none;height:38px}
 .brands__list li.has-logo .blogo{
   display:block;height:30px;
   background:currentColor;
@@ -607,18 +607,15 @@ html[data-theme="dark"] .ico-moon{display:block}
   font-size:.72rem;font-weight:700;letter-spacing:.09em;
   text-transform:uppercase;color:var(--ai);margin-bottom:.4rem;
 }
-/* logo thương hiệu trong thẻ dự án — nhỏ hơn ở dải thương hiệu */
-.project__org .blogo{height:18px}
-.project__org.has-logo .blogo{
+/* Ô icon của thẻ dự án: có file logo thì logo thay icon, chưa có thì giữ icon. */
+.project__thumb .blogo{height:24px;max-width:40px}
+.project__thumb.has-logo .blogo{
   display:block;
   background:currentColor;
-  -webkit-mask:var(--logo) left center/contain no-repeat;
-          mask:var(--logo) left center/contain no-repeat;
+  -webkit-mask:var(--logo) center/contain no-repeat;
+          mask:var(--logo) center/contain no-repeat;
 }
-.project__org.has-logo .bword{
-  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
-  overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0;
-}
+.project__thumb.has-logo > svg{display:none}
 .project__meta dd strong{color:var(--ink);font-weight:800}
 
 .projects__more{

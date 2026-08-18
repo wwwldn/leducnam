@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="stylesheet" href="assets/css/style.css?v=6">
 
 <script type="application/ld+json">
 {
@@ -46,7 +46,7 @@
   "worksFor": { "@type": "Organization", "name": "Gree Việt Nam" },
   "alumniOf": { "@type": "CollegeOrUniversity", "name": "Trường Đại học Tôn Đức Thắng" },
   "address": { "@type": "PostalAddress", "addressLocality": "TP. Hồ Chí Minh", "addressCountry": "VN" },
-  "knowsLanguage": ["vi", "en", "zh"],
+  "knowsLanguage": ["vi", "en"],
   "knowsAbout": [
     "Kiến trúc hệ thống", "Quản lý vận hành CNTT", "IT Governance", "RBAC",
     "Triển khai ERP", "SQL Server Administration", "AI Agent", "Automation",
@@ -222,7 +222,7 @@
         <li><span data-i18n="about.f2k">Lĩnh vực</span><span data-i18n="about.f2v">Sản xuất, bán lẻ, xây dựng, tài chính</span></li>
         <li><span data-i18n="about.f3k">Trọng tâm</span><span data-i18n="about.f3v">Triển khai ERP · Quản trị SQL Server · AI &amp; Automation</span></li>
         <li><span data-i18n="about.f4k">Cách tiếp cận</span><span data-i18n="about.f4v">Cầu nối giữa giải pháp kỹ thuật và nhu cầu kinh doanh</span></li>
-        <li><span data-i18n="about.f5k">Ngoại ngữ</span><span data-i18n="about.f5v">Tiếng Anh · Tiếng Trung (hát giao lưu)</span></li>
+        <li><span data-i18n="about.f5k">Ngoại ngữ</span><span data-i18n="about.f5v">Tiếng Anh</span></li>
       </ul>
     </div>
   </div>
@@ -378,7 +378,7 @@
       <article class="ai-card reveal">
         <span class="ai-card__tag" data-i18n="aic1.tag">Nghiên cứu &amp; ứng dụng</span>
         <h3 data-i18n="aic1.h3">AI Agent trong vận hành &amp; quản trị</h3>
-        <p data-i18n="aic1.p">Tìm hiểu và thử nghiệm các AI Agent — OpenClaw, VS Agivity, Codex… — rồi đưa vào giám sát hệ thống, quản trị và xử lý từ xa. Máy lo phần lặp lại, người lo phần cần quyết định.</p>
+        <p data-i18n="aic1.p">Tìm hiểu và thử nghiệm các công cụ AI cài trực tiếp trên máy — OpenClaw, Antigravity, Codex, Visual Studio Code… — rồi đưa vào giám sát hệ thống, quản trị và xử lý từ xa. Máy lo phần lặp lại, người lo phần cần quyết định.</p>
         <ul class="chips"><li data-i18n="aic1.c1">Giám sát 24/7</li><li data-i18n="aic1.c2">Quản trị từ xa</li><li data-i18n="aic1.c3">Giảm phụ thuộc vendor</li></ul>
       </article>
 
@@ -410,13 +410,11 @@
 
     <div class="projects">
       <article class="project reveal">
-        <div class="project__thumb" aria-hidden="true">
+        <div class="project__thumb" data-logo="gree" aria-hidden="true">
+          <span class="blogo"></span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M10.6 5.4h2.8M12 18.2v.1"/></svg>
         </div>
-        <span class="project__org" data-logo="gree">
-          <span class="blogo" aria-hidden="true"></span>
-          <span class="bword" data-i18n="prj.orgGree">Gree Việt Nam</span>
-        </span>
+        <span class="project__org" data-i18n="prj.orgGree">Gree Việt Nam</span>
         <h3>Gree App (G-App)</h3>
         <dl class="project__meta">
           <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj1.role">Dẫn dắt phát triển end-to-end (Laravel / React)</dd></div>
@@ -425,13 +423,11 @@
       </article>
 
       <article class="project reveal" data-delay="1">
-        <div class="project__thumb" aria-hidden="true">
+        <div class="project__thumb" data-logo="gree" aria-hidden="true">
+          <span class="blogo"></span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.6"/><path d="M10 6.5h4M6.5 10v4"/></svg>
         </div>
-        <span class="project__org" data-logo="gree">
-          <span class="blogo" aria-hidden="true"></span>
-          <span class="bword" data-i18n="prj.orgGree">Gree Việt Nam</span>
-        </span>
+        <span class="project__org" data-i18n="prj.orgGree">Gree Việt Nam</span>
         <h3 data-i18n="prj2.t">Tích hợp ERP &amp; hệ thống lõi</h3>
         <dl class="project__meta">
           <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj2.role">Quản trị &amp; điều phối 4 nền tảng: ASoft, MISA, Hoàn Hảo Soft, BSC</dd></div>
@@ -440,13 +436,11 @@
       </article>
 
       <article class="project reveal" data-delay="2">
-        <div class="project__thumb" aria-hidden="true">
+        <div class="project__thumb" data-logo="gree" aria-hidden="true">
+          <span class="blogo"></span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="4.6" cy="5.6" r="2"/><circle cx="19.4" cy="5.6" r="2"/><circle cx="4.6" cy="18.4" r="2"/><circle cx="19.4" cy="18.4" r="2"/><path d="M6.2 6.9 9.7 10M17.8 6.9 14.3 10M6.2 17.1 9.7 14M17.8 17.1 14.3 14"/></svg>
         </div>
-        <span class="project__org" data-logo="gree">
-          <span class="blogo" aria-hidden="true"></span>
-          <span class="bword" data-i18n="prj.orgGree">Gree Việt Nam</span>
-        </span>
+        <span class="project__org" data-i18n="prj.orgGree">Gree Việt Nam</span>
         <h3 data-i18n="prj4.t">Trung tâm điều phối dữ liệu (Data Hub)</h3>
         <dl class="project__meta">
           <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj4.role">Thiết kế kiến trúc &amp; tự xây từ đầu</dd></div>
@@ -455,13 +449,11 @@
       </article>
 
       <article class="project reveal">
-        <div class="project__thumb" aria-hidden="true">
+        <div class="project__thumb" data-logo="gree" aria-hidden="true">
+          <span class="blogo"></span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9h18M8 2.8v3.4M16 2.8v3.4"/><path d="m9.4 14.4 1.8 1.8 3.6-3.8"/></svg>
         </div>
-        <span class="project__org" data-logo="gree">
-          <span class="blogo" aria-hidden="true"></span>
-          <span class="bword" data-i18n="prj.orgGree">Gree Việt Nam</span>
-        </span>
+        <span class="project__org" data-i18n="prj.orgGree">Gree Việt Nam</span>
         <h3 data-i18n="prj5.t">Hệ thống chấm công &amp; tính lương</h3>
         <dl class="project__meta">
           <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj5.role">Tự xây từ đầu, đang vận hành</dd></div>
@@ -470,13 +462,11 @@
       </article>
 
       <article class="project project--ai reveal" data-delay="1">
-        <div class="project__thumb" aria-hidden="true">
+        <div class="project__thumb" data-logo="gree" aria-hidden="true">
+          <span class="blogo"></span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5Z"/><path d="M9 8h6M9 11.5h4"/></svg>
         </div>
-        <span class="project__org" data-logo="gree">
-          <span class="blogo" aria-hidden="true"></span>
-          <span class="bword" data-i18n="prj.orgGree">Gree Việt Nam</span>
-        </span>
+        <span class="project__org" data-i18n="prj.orgGree">Gree Việt Nam</span>
         <h3><span data-i18n="prj6.t">Cổng tra cứu mã lỗi</span> <span class="tag-ai">AI</span></h3>
         <dl class="project__meta">
           <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj6.role">Thiết kế &amp; triển khai</dd></div>
@@ -485,13 +475,11 @@
       </article>
 
       <article class="project reveal" data-delay="2">
-        <div class="project__thumb" aria-hidden="true">
+        <div class="project__thumb" data-logo="hoasen" aria-hidden="true">
+          <span class="blogo"></span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17M6 20.5V9l6-4.5L18 9v11.5"/><path d="M10 20.5v-5h4v5"/></svg>
         </div>
-        <span class="project__org" data-logo="hoasen">
-          <span class="blogo" aria-hidden="true"></span>
-          <span class="bword" data-i18n="prj.orgHsg">Hoa Sen Group</span>
-        </span>
+        <span class="project__org" data-i18n="prj.orgHsg">Hoa Sen Group</span>
         <h3 data-i18n="prj7.t">ERP Kế toán quản trị</h3>
         <dl class="project__meta">
           <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj7.role">Bảo trì &amp; nâng cấp hệ thống lõi (C# / .NET / SQL Server)</dd></div>
@@ -500,13 +488,11 @@
       </article>
 
       <article class="project reveal">
-        <div class="project__thumb" aria-hidden="true">
+        <div class="project__thumb" data-logo="samsung" aria-hidden="true">
+          <span class="blogo"></span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17"/><rect x="5" y="11" width="3.6" height="7" rx="1"/><rect x="10.2" y="6" width="3.6" height="12" rx="1"/><rect x="15.4" y="8.6" width="3.6" height="9.4" rx="1"/></svg>
         </div>
-        <span class="project__org" data-logo="samsung">
-          <span class="blogo" aria-hidden="true"></span>
-          <span class="bword" data-i18n="prj.orgSs">Samsung Việt Nam</span>
-        </span>
+        <span class="project__org" data-i18n="prj.orgSs">Samsung Việt Nam</span>
         <h3 data-i18n="prj10.t">Hệ thống báo cáo đánh giá đại lý</h3>
         <dl class="project__meta">
           <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj10.role">Team Leader 7 người — qua Kyanon Digital</dd></div>
@@ -515,13 +501,11 @@
       </article>
 
       <article class="project reveal" data-delay="1">
-        <div class="project__thumb" aria-hidden="true">
+        <div class="project__thumb" data-logo="tpbank" aria-hidden="true">
+          <span class="blogo"></span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2.8" width="16" height="18.4" rx="2.4"/><path d="M8 8h8M8 12h8M8 16h4.5"/></svg>
         </div>
-        <span class="project__org" data-logo="tpbank">
-          <span class="blogo" aria-hidden="true"></span>
-          <span class="bword" data-i18n="prj.orgTpb">TPBank</span>
-        </span>
+        <span class="project__org" data-i18n="prj.orgTpb">TPBank</span>
         <h3 data-i18n="prj11.t">eForm — Mở tài khoản trực tuyến</h3>
         <dl class="project__meta">
           <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj11.role">Front-End — qua Kyanon Digital</dd></div>
@@ -530,13 +514,11 @@
       </article>
 
       <article class="project reveal" data-delay="2">
-        <div class="project__thumb" aria-hidden="true">
+        <div class="project__thumb" data-logo="newlifepack" aria-hidden="true">
+          <span class="blogo"></span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4"/><path d="M13.5 13.5h3v3h-3zM20 13.5v3M17.5 20.5H21"/></svg>
         </div>
-        <span class="project__org" data-logo="newlifepack">
-          <span class="blogo" aria-hidden="true"></span>
-          <span class="bword" data-i18n="prj.orgNlp">NewLifePack</span>
-        </span>
+        <span class="project__org" data-i18n="prj.orgNlp">NewLifePack</span>
         <h3 data-i18n="prj8.t">QR-Check — Truy xuất nguồn gốc</h3>
         <dl class="project__meta">
           <div><dt data-i18n="prj.role">Vai trò</dt><dd data-i18n="prj8.role">Chủ trì sản phẩm từ ý tưởng đến triển khai</dd></div>
@@ -770,7 +752,7 @@
   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
 </a>
 
-<script src="assets/js/i18n.js?v=3" defer></script>
-<script src="assets/js/main.js?v=3" defer></script>
+<script src="assets/js/i18n.js?v=6" defer></script>
+<script src="assets/js/main.js?v=6" defer></script>
 </body>
 </html>

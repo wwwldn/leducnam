@@ -58,7 +58,7 @@ vi: {
   'about.f4k': 'Cách tiếp cận',
   'about.f4v': 'Cầu nối giữa giải pháp kỹ thuật và nhu cầu kinh doanh',
   'about.f5k': 'Ngoại ngữ',
-  'about.f5v': 'Tiếng Anh · Tiếng Trung (hát giao lưu)',
+  'about.f5v': 'Tiếng Anh',
 
   'proc.kicker': 'Cách tôi làm việc',
   'proc.h2': 'Ba bước, lặp lại liên tục',
@@ -83,7 +83,7 @@ vi: {
 
   'aic1.tag': 'Nghiên cứu & ứng dụng',
   'aic1.h3': 'AI Agent trong vận hành & quản trị',
-  'aic1.p': 'Tìm hiểu và thử nghiệm các AI Agent — OpenClaw, VS Agivity, Codex… — rồi đưa vào giám sát hệ thống, quản trị và xử lý từ xa. Máy lo phần lặp lại, người lo phần cần quyết định.',
+  'aic1.p': 'Tìm hiểu và thử nghiệm các công cụ AI cài trực tiếp trên máy — OpenClaw, Antigravity, Codex, Visual Studio Code… — rồi đưa vào giám sát hệ thống, quản trị và xử lý từ xa. Máy lo phần lặp lại, người lo phần cần quyết định.',
   'aic1.c1': 'Giám sát 24/7',
   'aic1.c2': 'Quản trị từ xa',
   'aic1.c3': 'Giảm phụ thuộc vendor',
@@ -247,7 +247,7 @@ en: {
   'about.f4k': 'Approach',
   'about.f4v': 'Bridging technical solutions and business requirements',
   'about.f5k': 'Languages',
-  'about.f5v': 'English · Chinese',
+  'about.f5v': 'English',
 
   'proc.kicker': 'How I work',
   'proc.h2': 'Three steps, repeated continuously',
@@ -429,7 +429,7 @@ zh: {
   'about.f4k': '方法',
   'about.f4v': '在技术方案与业务需求之间搭桥',
   'about.f5k': '语言',
-  'about.f5v': '英语 · 中文',
+  'about.f5v': '英语',
 
   'proc.kicker': '我的工作方式',
   'proc.h2': '三步走，持续迭代',

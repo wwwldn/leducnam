@@ -279,37 +279,65 @@
 
   /* ---------- 7b. Logo thương hiệu ---------- */
   /* Thả file assets/img/logos/<slug>.svg (hoặc .png/.webp) là logo tự thay chữ.
-     slug lấy từ data-logo trên mỗi <li>. */
-  Array.prototype.forEach.call(document.querySelectorAll('[data-logo]'), function (li) {
-    var base = 'assets/img/logos/' + li.getAttribute('data-logo') + '.';
-    var exts = ['svg', 'png', 'webp'];   // ưu tiên svg, không có thì thử png
-    var i = 0, src = '';
+     Logo tô một màu bằng mask nên file gốc màu gì cũng hợp tông.
+
+     Dải thương hiệu chạy kiểu "đủ mới đổi": chỉ chuyển sang logo khi CẢ SÁU
+     thương hiệu đều có file, vì một logo đứng cạnh năm dòng chữ trông như lỗi.
+     Thẻ dự án thì đổi riêng từng thẻ, vì mỗi thẻ là một khối độc lập. */
+
+  function findLogo(el, done) {
+    var exts = ['svg', 'png', 'webp'];
+    var base = 'assets/img/logos/' + el.getAttribute('data-logo') + '.';
+    var i = 0;
     var probe = new Image();
 
-    probe.onerror = function () {
-      if (++i < exts.length) { src = base + exts[i]; probe.src = src; }
-    };
-
     probe.onload = function () {
-      var box = li.querySelector('.blogo');
-      if (!box) return;
+      var box = el.querySelector('.blogo');
+      if (!box) return done(false);
+
       var ratio = (probe.naturalWidth && probe.naturalHeight)
         ? probe.naturalWidth / probe.naturalHeight : 3;
-      // giới hạn để logo quá dài hoặc quá vuông không phá nhịp hàng
-      ratio = Math.max(1, Math.min(ratio, 5));
-      // chiều cao do CSS quy định theo từng vị trí (dải thương hiệu / thẻ dự án)
-      var hpx = parseFloat(window.getComputedStyle(box).height) || 30;
+      ratio = Math.max(1, Math.min(ratio, 5));   // kẹp để logo lạ không phá nhịp
+
       // URL phải tuyệt đối: đường dẫn tương đối trong custom property được
       // phân giải theo vị trí file CSS, không phải file HTML.
-      var abs = (typeof URL === 'function') ? new URL(src, document.baseURI).href : src;
-      box.style.setProperty('--logo', 'url("' + abs + '")');
-      box.style.width = Math.round(hpx * ratio) + 'px';
-      li.classList.add('has-logo');
+      var abs = (typeof URL === 'function') ? new URL(probe.src, document.baseURI).href : probe.src;
+
+      done(true, function () {
+        var h = parseFloat(window.getComputedStyle(box).height) || 30;
+        box.style.setProperty('--logo', 'url("' + abs + '")');
+        box.style.width = Math.round(h * ratio) + 'px';
+        el.classList.add('has-logo');
+      });
     };
 
-    src = base + exts[0];
-    probe.src = src;
+    probe.onerror = function () {
+      if (++i < exts.length) { probe.src = base + exts[i]; return; }
+      done(false);
+    };
+
+    probe.src = base + exts[0];
+  }
+
+  // Thẻ dự án — đổi từng thẻ một
+  Array.prototype.forEach.call(document.querySelectorAll('.project__thumb[data-logo]'), function (el) {
+    findLogo(el, function (ok, apply) { if (ok) apply(); });
   });
+
+  // Dải thương hiệu — chỉ đổi khi đủ cả bộ
+  var strip = document.querySelectorAll('.brands__list [data-logo]');
+  if (strip.length) {
+    var pending = strip.length, applies = [], allOk = true;
+
+    Array.prototype.forEach.call(strip, function (el) {
+      findLogo(el, function (ok, apply) {
+        if (ok) { applies.push(apply); } else { allOk = false; }
+        if (--pending === 0 && allOk) {
+          applies.forEach(function (fn) { fn(); });
+        }
+      });
+    });
+  }
 
   /* ---------- 8. Năm ở footer ---------- */
   var year = document.getElementById('year');
